@@ -26,6 +26,7 @@ import argparse
 from pathlib import Path
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional, Tuple, TYPE_CHECKING
+import signal
 
 if TYPE_CHECKING:  # pragma: no cover - for linters / IDEs only
     pass
@@ -157,7 +158,10 @@ def generate_genz_daily(pct: Optional[float], rank_val: Optional[int], et_val: O
     return fr, en
 
 
+LAST_SELECTED_ROWS: List[Dict[str, Any]] = []  # populated after selected players built
+
 def print_selected_players(results: List[Dict[str, Any]]):
+    global LAST_SELECTED_ROWS
     wanted = {p.lower(): p for p in SELECTED_PLAYERS}
     rows: List[Dict[str, Any]] = []
     for obj in results:
@@ -173,7 +177,9 @@ def print_selected_players(results: List[Dict[str, Any]]):
             })
     if not rows:
         print("\nJoueurs sélectionnés : aucun trouvé dans l'archive.")
+        LAST_SELECTED_ROWS = []
         return
+
     # Compute derived metrics
     for r in rows:
         gr = r['good_responses']
@@ -274,6 +280,8 @@ def print_selected_players(results: List[Dict[str, Any]]):
             if GENZ_ENABLED:
                 line += f" {r.get('genz_fr','')} {r.get('genz_en','')}"
             print(line)
+
+    LAST_SELECTED_ROWS = rows  # store final (ordered) rows for saving/interrupt use
 
 
 def summarize_distribution(results: List[Dict[str, Any]]):
@@ -439,6 +447,189 @@ def run_daily(date_str: str, *, use_cache: bool, refresh: bool) -> int:
     return 0
 
 
+def slack_table(rows: List[Dict[str, Any]]) -> str:
+    """
+    Build a Slack-friendly monospaced table (ASCII pipes) wrapped in triple backticks.
+    Slack does NOT render Markdown tables, so we render a fixed-width ASCII table.
+    """
+    if not rows:
+        return "```\n(Aucune donnée)\n```"
+    cols = ['rank', 'player', 'good_responses', 'total', 'pct', 'elapsed_fmt', 'badges']
+    if GENZ_ENABLED:
+        cols += ['genz_fr', 'genz_en']
+
+    header_labels = {
+        'rank': '#',
+        'player': 'joueur',
+        'good_responses': 'sc',
+        'total': 'tot',
+        'pct': '%',
+        'elapsed_fmt': 'tps',
+        'badges': '🏅',
+        'genz_fr': 'genz_fr',
+        'genz_en': 'genz_en'
+    }
+
+    # Prepare display rows (truncate long gen-z phrases)
+    disp = []
+    for r in rows:
+        pct_str = f"{r['pct']:.1f}%" if isinstance(r.get('pct'), (int, float)) else ''
+        row = {
+            'rank': r.get('rank', ''),
+            'player': r.get('player', ''),
+            'good_responses': r.get('good_responses', ''),
+            'total': r.get('total', ''),
+            'pct': pct_str,
+            'elapsed_fmt': r.get('elapsed_fmt', ''),
+            'badges': r.get('badges', ''),
+            'genz_fr': r.get('genz_fr', ''),
+            'genz_en': r.get('genz_en', '')
+        }
+        if GENZ_ENABLED:
+            if len(row['genz_fr']) > 22:
+                row['genz_fr'] = row['genz_fr'][:19] + '…'
+            if len(row['genz_en']) > 22:
+                row['genz_en'] = row['genz_en'][:19] + '…'
+        disp.append(row)
+
+    # Display width helpers (accounts for wide emojis when wcwidth available)
+    try:  # optional dependency
+        from wcwidth import wcswidth  # type: ignore
+        def dwidth(txt: str) -> int:
+            w = wcswidth(txt)
+            return w if w >= 0 else len(txt)
+    except Exception:  # fallback
+        def dwidth(txt: str) -> int:  # type: ignore
+            return len(txt)
+
+    min_width = {
+        'rank': 2, 'player': 6, 'good_responses': 2, 'total': 3,
+        'pct': 3, 'elapsed_fmt': 3, 'badges': 2, 'genz_fr': 7, 'genz_en': 7
+    }
+    max_width = {'player': 14, 'genz_fr': 22, 'genz_en': 22}
+
+    # Pre-truncate values exceeding max_width for consistent width calculation
+    def truncate_val(s: str, col: str) -> str:
+        limit = max_width.get(col)
+        if not limit:
+            return s
+        if dwidth(s) <= limit:
+            return s
+        # truncate preserving display width
+        acc = ''
+        for ch in s:
+            if dwidth(acc + ch + '…') > limit:
+                break
+            acc += ch
+        return acc + '…'
+
+    # Apply truncation to header & rows for width computation stage
+    trunc_disp = []
+    for r in disp:
+        nr = {}
+        for c in cols:
+            nr[c] = truncate_val(str(r[c]), c)
+        trunc_disp.append(nr)
+    trunc_header = {c: truncate_val(header_labels.get(c, c), c) for c in cols}
+
+    widths: Dict[str, int] = {}
+    for c in cols:
+        content_w = max([dwidth(row[c]) for row in trunc_disp] + [dwidth(trunc_header[c])])
+        content_w = max(content_w, min_width.get(c, 1))
+        widths[c] = content_w
+
+    def pad_cell(s: str, col: str, right_align: bool) -> str:
+        s_trunc = truncate_val(s, col)
+        w = dwidth(s_trunc)
+        pad = widths[col] - w
+        if pad <= 0:
+            return s_trunc
+        return (' ' * pad + s_trunc) if right_align else (s_trunc + ' ' * pad)
+
+    def fmt(val: Any, col: str) -> str:
+        s = str(val)
+        align_right = col in ('rank', 'good_responses', 'total', 'pct', 'elapsed_fmt')
+        return pad_cell(s, col, align_right)
+
+    # Build lines
+    sep = "+".join('-' * (widths[c] + 2) for c in cols)
+    sep = f"+{sep}+"
+    header_cells = [fmt(header_labels.get(c, c), c) for c in cols]
+    header_line = "| " + " | ".join(header_cells) + " |"
+    lines = ["```", sep, header_line, sep]
+    for r in disp:
+        line = "| " + " | ".join(fmt(r[c], c) for c in cols) + " |"
+        lines.append(line)
+    lines.append(sep)
+    lines.append("```")
+    return "\n".join(lines)
+
+
+def serialize_rows(rows: List[Dict[str, Any]], fmt: str) -> str:
+    if not rows:
+        return ""
+    # Column order
+    cols = ['rank','player','real_name','good_responses','total','pct','elapsed_fmt','badges']
+    if GENZ_ENABLED:
+        cols += ['genz_fr','genz_en']
+    if fmt == 'json':
+        return json.dumps(rows, ensure_ascii=False, indent=2)
+    if fmt in ('csv','tsv'):
+        sep = ',' if fmt == 'csv' else '\t'
+        out = [sep.join(cols)]
+        for r in rows:
+            line=[]
+            for c in cols:
+                val = r.get(c, '')
+                if val is None:
+                    val = ''
+                sval = str(val)
+                if sep == ',' and (',' in sval or '"' in sval):
+                    sval = '"' + sval.replace('"','""') + '"'
+                line.append(sval)
+            out.append(sep.join(line))
+        return "\n".join(out)
+    if fmt == 'md':
+        header = "| " + " | ".join(cols) + " |"
+        sep = "| " + " | ".join(['---']*len(cols)) + " |"
+        lines=[header, sep]
+        for r in rows:
+            lines.append("| " + " | ".join(str(r.get(c,'')) for c in cols) + " |")
+        return "\n".join(lines)
+    # txt (plain aligned)
+    widths={c: max(len(c), *(len(str(r.get(c,''))) for r in rows)) for c in cols}
+    lines=[" ".join(c.upper().ljust(widths[c]) for c in cols)]
+    for r in rows:
+        lines.append(" ".join(str(r.get(c,'')).ljust(widths[c]) for c in cols))
+    return "\n".join(lines)
+
+
+def save_table(path: Path, rows: List[Dict[str, Any]]):
+    if not rows:
+        log("[SAVE-TABLE] Pas de lignes à sauvegarder.")
+        return
+    ext = path.suffix.lower().lstrip('.')
+    fmt = ext if ext in ('csv','tsv','json','md','txt') else 'txt'
+    data = serialize_rows(rows, fmt)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(data, encoding='utf-8')
+    log(f"[SAVE-TABLE] Table enregistrée: {path} (format={fmt}, lignes={len(rows)})")
+
+
+def copy_table_clipboard(rows: List[Dict[str, Any]], *, slack: bool = False):
+    try:
+        import pyperclip  # type: ignore
+    except Exception:
+        log("[CLIPBOARD] pyperclip non installé (uv add pyperclip)")
+        return
+    if slack:
+        text = slack_table(rows)
+    else:
+        text = serialize_rows(rows, 'txt')
+    pyperclip.copy(text)
+    log("[CLIPBOARD] Table copiée dans le presse-papiers." + (" (Slack)" if slack else ""))
+
+
 def build_arg_parser() -> argparse.ArgumentParser:
     p=argparse.ArgumentParser(description="Daily quiz report")
     p.add_argument('date',nargs='?',default=None,help='Date YYYY-MM-DD (default: yesterday)')
@@ -448,12 +639,31 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument('--emojis',action='store_true',help='Enable emoji badges')
     p.add_argument('--genz',action='store_true',help='Enable Gen-Z banter')
     p.add_argument('--fun',action='store_true',help='Shortcut: enable both emojis + genz')
+    p.add_argument('--save-table', help='Chemin fichier pour sauvegarder la table (auto format by extension)')
+    p.add_argument('--clipboard', action='store_true', help='Copier la table finale dans le presse-papiers (texte brut)')
+    p.add_argument('--clipboard-slack', action='store_true', help='Copier la table formatée pour Slack')
+    p.add_argument('--slack-print', action='store_true', help='Afficher directement la table Slack sur stdout')
     return p
 
 
 def main(argv: List[str]) -> int:
     parser = build_arg_parser()
     args = parser.parse_args(argv[1:])
+
+    interrupted = {'flag': False}
+
+    def on_sigint(sig, frame):
+        interrupted['flag'] = True
+        print("\n[INTERRUPTION] Ctrl+C détecté, tentative de sauvegarde avant sortie...")
+        if args.save_table and LAST_SELECTED_ROWS:
+            try:
+                save_table(Path(args.save_table), LAST_SELECTED_ROWS)
+            except Exception as e:
+                eprint(f"[INT-SAVE] Échec sauvegarde: {e}")
+        raise KeyboardInterrupt
+
+    signal.signal(signal.SIGINT, on_sigint)
+
     if args.date is None:
         from datetime import date as _date
         date_str=(_date.today()-timedelta(days=1)).strftime('%Y-%m-%d')
@@ -470,7 +680,23 @@ def main(argv: List[str]) -> int:
         GENZ_ENABLED = bool(args.genz or args.fun)
     use_cache = not args.no_cache
     refresh = bool(args.refresh)
-    return run_daily(date_str, use_cache=use_cache, refresh=refresh)
+    try:
+        code = run_daily(date_str, use_cache=use_cache, refresh=refresh)
+    except KeyboardInterrupt:
+        print("[INTERRUPTION] Arrêt par utilisateur.")
+        return 130
+
+    # Post-run save / clipboard
+    if args.save_table and LAST_SELECTED_ROWS:
+        save_table(Path(args.save_table), LAST_SELECTED_ROWS)
+    if args.clipboard and LAST_SELECTED_ROWS:
+        copy_table_clipboard(LAST_SELECTED_ROWS, slack=False)
+    if args.clipboard_slack and LAST_SELECTED_ROWS:
+        copy_table_clipboard(LAST_SELECTED_ROWS, slack=True)
+    if args.slack_print and LAST_SELECTED_ROWS:
+        print("\nTable Slack:\n")
+        print(slack_table(LAST_SELECTED_ROWS))
+    return code
 
 
 if __name__ == '__main__':  # pragma: no cover
