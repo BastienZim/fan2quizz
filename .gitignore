@@ -1,0 +1,43 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local SQLite database (generated at runtime)
+db/*
+!db/.gitkeep
+
+# Cache / scraped archive JSON (runtime generated)
+cache/*
+!cache/.gitkeep
+cache/archive/*
+!cache/archive/.gitkeep
+
+# Saved raw archive HTML snapshots
+archive_*.html
+
+# Jupyter execution artifacts
+*.ipynb_checkpoints/
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# Logs / reports
+*.log
+coverage/
+
+# Bytecode
+*.pyo
+*.pyd
+
+# Ruff / mypy caches (if added later)
+.ruff_cache/
+.mypy_cache/

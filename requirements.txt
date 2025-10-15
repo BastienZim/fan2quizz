@@ -1,0 +1,6 @@
+requests>=2.30.0
+beautifulsoup4>=4.12.2
+tqdm
+python-dateutil
+sqlite-utils>=3.40.0
+lxml
