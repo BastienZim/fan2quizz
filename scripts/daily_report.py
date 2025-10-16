@@ -9,10 +9,10 @@ Features kept:
 Removed: weekly aggregation, legacy exploratory code, language toggle.
 
 Usage examples:
-  python examples/daily_report.py                # yesterday
-  python examples/daily_report.py 2025-10-14
-  python examples/daily_report.py 2025-10-14 --no-cache --refresh
-  python examples/daily_report.py --fun          # emojis + genz (default if no flags)
+  python scripts/daily_report.py                # yesterday
+  python scripts/daily_report.py 2025-10-14
+  python scripts/daily_report.py 2025-10-14 --no-cache --refresh
+  python scripts/daily_report.py --fun          # emojis + genz (default if no flags)
 """
 
 from __future__ import annotations
@@ -37,17 +37,21 @@ if str(ROOT) not in sys.path:
 
 
 # ---------------- Configuration ---------------- #
-DB_PATH = ROOT / "db" / "quizypedia.db"
-CACHE_DIR = ROOT / "cache" / "archive"
+DB_PATH = ROOT / "data" / "db" / "quizypedia.db"
+CACHE_DIR = ROOT / "data" / "cache" / "archive"
 RATE_LIMIT_SECONDS = 0.2
 QUIZ_TOTAL_FALLBACK = 20
-SELECTED_PLAYERS = ["jutabouret", "louish", "KylianMbappe", "BastienZim", "kamaiel"]
+SELECTED_PLAYERS = ["jutabouret", "louish", "KylianMbappe", "BastienZim", "kamaiel", "phllbrn", "DestroyOps","pascal-condamine", "ColonelProut"]
 REAL_NAME_MAP = {
     "jutabouret": "Julien",
     "louish": "Louis",
     "kylianmbappe": "Clement",
     "bastienzim": "Bastien",
     "kamaiel": "Raphael",
+    "phllbrn": "Ophélie",
+    "DestroyOps":"Alexis",
+    "pascal-condamine":"Pascal",
+    "ColonelProut":"Lucas",
 }
 
 EMOJIS_ENABLED = False
@@ -425,9 +429,9 @@ def fetch_daily_results(scraper, date_str: str, *, use_cache: bool=True, refresh
 
 
 def run_daily(date_str: str, *, use_cache: bool, refresh: bool) -> int:
-    from src.database import QuizDB  # type: ignore
-    from src.scraper import QuizypediaScraper  # type: ignore
-    from src.utils import RateLimiter  # type: ignore
+    from fan2quizz.database import QuizDB  # type: ignore
+    from fan2quizz.scraper import QuizypediaScraper  # type: ignore
+    from fan2quizz.utils import RateLimiter  # type: ignore
     print(f"== Rapport quotidien du quiz pour {date_str} ==")
     db = QuizDB(str(DB_PATH))
     show_local_leaderboard(db, date_str)

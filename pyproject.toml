@@ -1,17 +1,29 @@
 [project]
 name = "fan2quizz"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.2.0"
+description = "Quizypedia daily quiz utilities - track leaderboards and parse results"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.8"
 dependencies = [
-    "beautifulsoup4>=4.14.2",
-    "lxml>=6.0.2",
-    "pandas>=2.3.3",
-    "pyperclip>=1.11.0",
-    "python-dateutil>=2.9.0.post0",
-    "requests>=2.32.5",
-    "rich>=14.2.0",
-    "sqlite-utils>=3.38",
-    "tqdm>=4.67.1",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=6.0.0",
+    "requests>=2.30.0",
 ]
+
+[project.scripts]
+parse-results = "fan2quizz.cli:parse_results_main"
+daily-report = "fan2quizz.cli:daily_report_main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=24.0.0",
+    "ruff>=0.5.0",
+]
+
+[tool.setuptools]
+packages = ["fan2quizz"]
+
+[tool.setuptools.package-data]
+fan2quizz = ["py.typed"]

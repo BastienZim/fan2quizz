@@ -1,0 +1,5650 @@
+{
+  "user_info": {
+    "good_responses": 14,
+    "elapsed_time": 227,
+    "ranking": 693,
+    "date": "\"2025-10-16\""
+  },
+  "questions": [
+    {
+      "theme_title": "Pathologies et lésions de la peau (2)",
+      "theme_id": 5293,
+      "theme_url": "/quiz/Pathologies%20et%20l%C3%A9sions%20de%20la%20peau%20(2)/",
+      "quiz_id": -1,
+      "question": "Quelle pathologie associe-t-on à la description suivante ?",
+      "hints": [
+        {
+          "type": "Description",
+          "value": "Maladie inflammatoire de la peau pouvant être \"en plaques\" ou \"en gouttes\". Son nom, d'origine grecque, signifie \"éruption galeuse\"."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Scarlatine",
+          "card_id": null
+        },
+        {
+          "response": "Lèpre",
+          "card_id": null
+        },
+        {
+          "response": "Mélanome",
+          "card_id": null
+        },
+        {
+          "response": "Psoriasis",
+          "card_id": null
+        }
+      ],
+      "response_index": 3,
+      "main_category_id": 7,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-flask",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 3,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Coupes du monde de rugby à XV",
+      "theme_id": 1117,
+      "theme_url": "/quiz/Coupes%20du%20monde%20de%20rugby%20%C3%A0%20XV/",
+      "quiz_id": -1,
+      "question": "À quelle finale correspond cette année ?",
+      "hints": [
+        {
+          "type": "Année",
+          "value": "2011"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Nouvelle-Zélande-France 8-7",
+          "card_id": null
+        },
+        {
+          "response": "Afrique du Sud-Nouvelle-Zélande 12-11",
+          "card_id": null
+        },
+        {
+          "response": "Afrique du Sud-Angleterre 15-6",
+          "card_id": null
+        },
+        {
+          "response": "Nouvelle-Zélande-France 29-9",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 8,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-running",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 0,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Quartiers de villes françaises",
+      "theme_id": 4964,
+      "theme_url": "/quiz/Quartiers%20de%20villes%20fran%C3%A7aises/",
+      "quiz_id": -1,
+      "question": "Dans quelle ville trouve-t-on ces quartiers ?",
+      "hints": [
+        {
+          "type": "Quartiers",
+          "value": "Cimiez, Jean-Médecin, Saint-Roch"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Nice",
+          "card_id": null
+        },
+        {
+          "response": "Marseille",
+          "card_id": null
+        },
+        {
+          "response": "Bordeaux",
+          "card_id": null
+        },
+        {
+          "response": "Strasbourg",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 4,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-globe-americas",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 1,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Plantes connues sous plusieurs noms (1)",
+      "theme_id": 198,
+      "theme_url": "/quiz/Plantes%20connues%20sous%20plusieurs%20noms%20(1)/",
+      "quiz_id": -1,
+      "question": "Quelle plante est aussi connue sous les noms suivants ?",
+      "hints": [
+        {
+          "type": "Autre(s) nom(s)",
+          "value": "Tue-chien, safran des prés, safran bâtard"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Colchique",
+          "card_id": null
+        },
+        {
+          "response": "Hellébore noir",
+          "card_id": null
+        },
+        {
+          "response": "Jusquiame",
+          "card_id": null
+        },
+        {
+          "response": "Aneth",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 6,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-kiwi-bird",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 1,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Noms terminés par -cratie (1)",
+      "theme_id": 6924,
+      "theme_url": "/quiz/Noms%20termin%C3%A9s%20par%20-cratie%20(1)/",
+      "quiz_id": -1,
+      "question": "Quel terme associe-t-on à cette définition ?",
+      "hints": [
+        {
+          "type": "Définition",
+          "value": "Système politique ou économique dans lequel les experts supplantent les responsables politiques (souvent péjoratif)."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Technocratie",
+          "card_id": null
+        },
+        {
+          "response": "Autocratie",
+          "card_id": null
+        },
+        {
+          "response": "Physiocratie",
+          "card_id": null
+        },
+        {
+          "response": "Ploutocratie",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 3,
+      "subcategory_id": -1,
+      "icon_class": "far fa-newspaper",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 0,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Les champions français d'escrime",
+      "theme_id": 1387,
+      "theme_url": "/quiz/Les%20champions%20fran%C3%A7ais%20d'escrime/",
+      "quiz_id": -1,
+      "question": "Quel escrimeur détient ce palmarès ?",
+      "hints": [
+        {
+          "type": "Palmarès individuel",
+          "value": "Double champion olympique au sabre en 1984 et 1988, et champion du monde en 1987"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Jean-François Lamour",
+          "card_id": null
+        },
+        {
+          "response": "Brice Guyart",
+          "card_id": null
+        },
+        {
+          "response": "Lucien Gaudin",
+          "card_id": null
+        },
+        {
+          "response": "Fabrice Jeannet",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 8,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-running",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 0,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Ébénistes célèbres",
+      "theme_id": 7497,
+      "theme_url": "/quiz/%C3%89b%C3%A9nistes%20c%C3%A9l%C3%A8bres/",
+      "quiz_id": -1,
+      "question": "Quel ébéniste associe-t-on à ces particularités ?",
+      "hints": [
+        {
+          "type": "Particularités",
+          "value": "Principal ébéniste du XVIIe siècle, ébéniste du roi, connu pour ses applications de bronze doré sur les meubles, et la technique de marqueterie qui porte son nom."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "André-Charles Boulle",
+          "card_id": null
+        },
+        {
+          "response": "Louis Majorelle",
+          "card_id": null
+        },
+        {
+          "response": "Guillaume Grohé",
+          "card_id": null
+        },
+        {
+          "response": "Georges Jacob",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 1,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-palette",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 0,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Portraits d'artistes",
+      "theme_id": 5638,
+      "theme_url": "/quiz/Portraits%20d'artistes/",
+      "quiz_id": -1,
+      "question": "Quel peintre a réalisé ce portrait ?",
+      "hints": [
+        {
+          "type": "Image",
+          "value": "925/925354883937.jpeg"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Eugène Delacroix",
+          "card_id": null
+        },
+        {
+          "response": "Auguste Renoir",
+          "card_id": null
+        },
+        {
+          "response": "Henri de Toulouse-Lautrec",
+          "card_id": null
+        },
+        {
+          "response": "Amedeo Modigliani",
+          "card_id": null
+        }
+      ],
+      "response_index": 2,
+      "main_category_id": 1,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-palette",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 2,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Noms des élevages d'animaux (2)",
+      "theme_id": 1309,
+      "theme_url": "/quiz/Noms%20des%20%C3%A9levages%20d'animaux%20(2)/",
+      "quiz_id": -1,
+      "question": "Quel animal correspond à cet élevage ?",
+      "hints": [
+        {
+          "type": "Nom de l'élevage",
+          "value": "Astaciculture"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Coquille Saint-Jacques et pétoncle",
+          "card_id": null
+        },
+        {
+          "response": "Lapin",
+          "card_id": null
+        },
+        {
+          "response": "Écrevisse",
+          "card_id": null
+        },
+        {
+          "response": "Astérie",
+          "card_id": null
+        }
+      ],
+      "response_index": 2,
+      "main_category_id": 6,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-kiwi-bird",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 2,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Humoristes français nés entre 1952 et 1963",
+      "theme_id": 2847,
+      "theme_url": "/quiz/Humoristes%20fran%C3%A7ais%20n%C3%A9s%20entre%201952%20et%201963/",
+      "quiz_id": -1,
+      "question": "Quel humoriste associe-t-on à ces particularités ?",
+      "hints": [
+        {
+          "type": "Particularités",
+          "value": "Il est connu pour ses canulars téléphoniques, ainsi que ses impostures dans la rue où il piège les passants et les plonge dans les délires de son cru."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Jean-Yves Lafesse",
+          "card_id": null
+        },
+        {
+          "response": "Elie Semoun",
+          "card_id": null
+        },
+        {
+          "response": "François Rollin",
+          "card_id": null
+        },
+        {
+          "response": "Smaïn",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 2,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-tv",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 0,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Lieux imaginaires dans la littérature (1)",
+      "theme_id": 5941,
+      "theme_url": "/quiz/Lieux%20imaginaires%20dans%20la%20litt%C3%A9rature%20(1)/",
+      "quiz_id": -1,
+      "question": "Quel lieu imaginaire correspond à cette évocation ?",
+      "hints": [
+        {
+          "type": "Évocation",
+          "value": "Abbaye mixte fondée au XVIe siècle pour remercier le moine Jean des Entommeures de sa participation à la guerre contre Picrochole. Les moines et les nonnes peuvent y vivre librement, la seule règle étant \"Fais ce que voudras\"."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Lilliput",
+          "card_id": null
+        },
+        {
+          "response": "Bastiani",
+          "card_id": null
+        },
+        {
+          "response": "Ogygie",
+          "card_id": null
+        },
+        {
+          "response": "Thélème",
+          "card_id": null
+        }
+      ],
+      "response_index": 3,
+      "main_category_id": 1,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-palette",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 3,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Fêtes religieuses musulmanes",
+      "theme_id": 3523,
+      "theme_url": "/quiz/F%C3%AAtes%20religieuses%20musulmanes/",
+      "quiz_id": -1,
+      "question": "Quelle fête correspond à la description suivante ?",
+      "hints": [
+        {
+          "type": "Description",
+          "value": "Fête marquant la fin du jeûne du Ramadan. Elle a lieu le premier jour du mois de Shawal, 10e mois du calendrier musulman."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Achoura",
+          "card_id": null
+        },
+        {
+          "response": "Lailat Al-Bara'ah",
+          "card_id": null
+        },
+        {
+          "response": "Aïd el Fitr",
+          "card_id": null
+        },
+        {
+          "response": "Al Mawlid",
+          "card_id": null
+        }
+      ],
+      "response_index": 2,
+      "main_category_id": 1,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-palette",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 2,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Grands chefs cuisiniers français (contemporains) (2)",
+      "theme_id": 7349,
+      "theme_url": "/quiz/Grands%20chefs%20cuisiniers%20fran%C3%A7ais%20(contemporains)%20(2)/",
+      "quiz_id": -1,
+      "question": "À quel chef cuisinier correspondent ces particularités ?",
+      "hints": [
+        {
+          "type": "Particularités",
+          "value": "Ce chef médiatique, originaire de Rodez et réputé pour son accent, est très suivi sur les réseaux sociaux et anime l'émission \"Tous en cuisine\" sur M6."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Paul Pairet",
+          "card_id": null
+        },
+        {
+          "response": "Yannick Alléno",
+          "card_id": null
+        },
+        {
+          "response": "Philippe Etchebest",
+          "card_id": null
+        },
+        {
+          "response": "Cyril Lignac",
+          "card_id": null
+        }
+      ],
+      "response_index": 3,
+      "main_category_id": 3,
+      "subcategory_id": -1,
+      "icon_class": "far fa-newspaper",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 3,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Films traitant de la Seconde Guerre mondiale (2)",
+      "theme_id": 5924,
+      "theme_url": "/quiz/Films%20traitant%20de%20la%20Seconde%20Guerre%20mondiale%20(2)/",
+      "quiz_id": -1,
+      "question": "Qui est le réalisateur de ce film ?",
+      "hints": [
+        {
+          "type": "Film",
+          "value": "Le Tombeau des lucioles"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Isao Takahata",
+          "card_id": null
+        },
+        {
+          "response": "Christopher Nolan",
+          "card_id": null
+        },
+        {
+          "response": "Steven Spielberg",
+          "card_id": null
+        },
+        {
+          "response": "Clint Eastwood",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 2,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-tv",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 0,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Exécutions en place de Grève",
+      "theme_id": 4291,
+      "theme_url": "/quiz/Ex%C3%A9cutions%20en%20place%20de%20Gr%C3%A8ve/",
+      "quiz_id": -1,
+      "question": "En quelle année cette personne a-t-elle été exécutée ?",
+      "hints": [
+        {
+          "type": "Personne",
+          "value": "Georges Cadoudal"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "1680",
+          "card_id": null
+        },
+        {
+          "response": "1617",
+          "card_id": null
+        },
+        {
+          "response": "1757",
+          "card_id": null
+        },
+        {
+          "response": "1804",
+          "card_id": null
+        }
+      ],
+      "response_index": 3,
+      "main_category_id": 5,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-landmark",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 2,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Le Titanic en 10 questions",
+      "theme_id": 4185,
+      "theme_url": "/quiz/Le%20Titanic%20en%2010%20questions/",
+      "quiz_id": -1,
+      "question": "Quelle est la réponse à la question suivante ?",
+      "hints": [
+        {
+          "type": "Question",
+          "value": "Quel était le trajet prévu du Titanic ?"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Southampton-Philadelphie",
+          "card_id": null
+        },
+        {
+          "response": "Glasgow-Philadelphie",
+          "card_id": null
+        },
+        {
+          "response": "Glasgow-New York",
+          "card_id": null
+        },
+        {
+          "response": "Southampton-New York",
+          "card_id": null
+        }
+      ],
+      "response_index": 3,
+      "main_category_id": 5,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-landmark",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 1,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Langues fictives célèbres",
+      "theme_id": 7252,
+      "theme_url": "/quiz/Langues%20fictives%20c%C3%A9l%C3%A8bres/",
+      "quiz_id": -1,
+      "question": "Quelle langue fictive correspond à cette description ?",
+      "hints": [
+        {
+          "type": "Description",
+          "value": "Argot anglo-russe inventé par Anthony Burgess pour son roman \"L'Orange mécanique\"."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Dothraki",
+          "card_id": null
+        },
+        {
+          "response": "Elfique",
+          "card_id": null
+        },
+        {
+          "response": "Na'vi",
+          "card_id": null
+        },
+        {
+          "response": "Nadsat",
+          "card_id": null
+        }
+      ],
+      "response_index": 3,
+      "main_category_id": 3,
+      "subcategory_id": -1,
+      "icon_class": "far fa-newspaper",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 3,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Prix Nobel de physiologie ou de médecine (1)",
+      "theme_id": 4871,
+      "theme_url": "/quiz/Prix%20Nobel%20de%20physiologie%20ou%20de%20m%C3%A9decine%20(1)/",
+      "quiz_id": -1,
+      "question": "Quel lauréat est associé à cette année et ces travaux ?",
+      "hints": [
+        {
+          "type": "Travaux et année",
+          "value": "Récompensé en 1905 pour ses recherches et découvertes en lien avec la tuberculose."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Charles Richet",
+          "card_id": null
+        },
+        {
+          "response": "Robert Koch",
+          "card_id": null
+        },
+        {
+          "response": "Jules Bordet",
+          "card_id": null
+        },
+        {
+          "response": "Charles Louis Alphonse Laveran",
+          "card_id": null
+        }
+      ],
+      "response_index": 1,
+      "main_category_id": 7,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-flask",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 3,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Capitales africaines (3)",
+      "theme_id": 58,
+      "theme_url": "/quiz/Capitales%20africaines%20(3)/",
+      "quiz_id": -1,
+      "question": "Quelle est la capitale du pays suivant ?",
+      "hints": [
+        {
+          "type": "Pays",
+          "value": "Mozambique"
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Maputo",
+          "card_id": null
+        },
+        {
+          "response": "São Tomé",
+          "card_id": null
+        },
+        {
+          "response": "Port-Louis",
+          "card_id": null
+        },
+        {
+          "response": "Niamey",
+          "card_id": null
+        }
+      ],
+      "response_index": 0,
+      "main_category_id": 4,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-globe-americas",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 0,
+      "opponent_chosen_index": -2,
+      "index": -1
+    },
+    {
+      "theme_title": "Oscars de la meilleure chanson originale (2)",
+      "theme_id": 4800,
+      "theme_url": "/quiz/Oscars%20de%20la%20meilleure%20chanson%20originale%20(2)/",
+      "quiz_id": -1,
+      "question": "Quelle chanson associe-t-on à ces particularités ?",
+      "hints": [
+        {
+          "type": "Particularités",
+          "value": "Chanson écrite, composée et interprétée par Bruce Springsteen."
+        }
+      ],
+      "proposed_responses": [
+        {
+          "response": "Flashdance... What a Feeling",
+          "card_id": null
+        },
+        {
+          "response": "Say You, Say Me",
+          "card_id": null
+        },
+        {
+          "response": "Fame",
+          "card_id": null
+        },
+        {
+          "response": "Streets of Philadelphia",
+          "card_id": null
+        }
+      ],
+      "response_index": 3,
+      "main_category_id": 2,
+      "subcategory_id": -1,
+      "icon_class": "fas fa-tv",
+      "start_time": null,
+      "end_time": null,
+      "success_ratio": [
+        {
+          "-1": 4,
+          "0": 183,
+          "1": 263,
+          "2": 18,
+          "3": 890,
+          "ratio_-1": 0,
+          "ratio_0": 13,
+          "ratio_1": 19,
+          "ratio_2": 1,
+          "ratio_3": 67
+        },
+        {
+          "-1": 3,
+          "0": 571,
+          "1": 280,
+          "2": 253,
+          "3": 251,
+          "ratio_-1": 0,
+          "ratio_0": 44,
+          "ratio_1": 20,
+          "ratio_2": 18,
+          "ratio_3": 18
+        },
+        {
+          "-1": 3,
+          "0": 847,
+          "1": 222,
+          "2": 219,
+          "3": 67,
+          "ratio_-1": 0,
+          "ratio_0": 64,
+          "ratio_1": 16,
+          "ratio_2": 16,
+          "ratio_3": 4
+        },
+        {
+          "-1": 2,
+          "0": 884,
+          "1": 180,
+          "2": 178,
+          "3": 114,
+          "ratio_-1": 0,
+          "ratio_0": 66,
+          "ratio_1": 13,
+          "ratio_2": 13,
+          "ratio_3": 8
+        },
+        {
+          "-1": 2,
+          "0": 1093,
+          "1": 56,
+          "2": 57,
+          "3": 150,
+          "ratio_-1": 0,
+          "ratio_0": 81,
+          "ratio_1": 4,
+          "ratio_2": 4,
+          "ratio_3": 11
+        },
+        {
+          "-1": 4,
+          "0": 1040,
+          "1": 94,
+          "2": 121,
+          "3": 99,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 6,
+          "ratio_2": 8,
+          "ratio_3": 7
+        },
+        {
+          "-1": 7,
+          "0": 916,
+          "1": 243,
+          "2": 135,
+          "3": 57,
+          "ratio_-1": 0,
+          "ratio_0": 70,
+          "ratio_1": 17,
+          "ratio_2": 9,
+          "ratio_3": 4
+        },
+        {
+          "-1": 3,
+          "0": 87,
+          "1": 358,
+          "2": 840,
+          "3": 70,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 26,
+          "ratio_2": 63,
+          "ratio_3": 5
+        },
+        {
+          "-1": 2,
+          "0": 172,
+          "1": 22,
+          "2": 549,
+          "3": 613,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 1,
+          "ratio_2": 40,
+          "ratio_3": 47
+        },
+        {
+          "-1": 2,
+          "0": 1266,
+          "1": 42,
+          "2": 28,
+          "3": 20,
+          "ratio_-1": 0,
+          "ratio_0": 94,
+          "ratio_1": 3,
+          "ratio_2": 2,
+          "ratio_3": 1
+        },
+        {
+          "-1": 22,
+          "0": 82,
+          "1": 195,
+          "2": 328,
+          "3": 731,
+          "ratio_-1": 1,
+          "ratio_0": 6,
+          "ratio_1": 14,
+          "ratio_2": 24,
+          "ratio_3": 55
+        },
+        {
+          "-1": 4,
+          "0": 71,
+          "1": 37,
+          "2": 1215,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 5,
+          "ratio_1": 2,
+          "ratio_2": 91,
+          "ratio_3": 2
+        },
+        {
+          "-1": 8,
+          "0": 20,
+          "1": 30,
+          "2": 295,
+          "3": 1005,
+          "ratio_-1": 0,
+          "ratio_0": 1,
+          "ratio_1": 2,
+          "ratio_2": 21,
+          "ratio_3": 76
+        },
+        {
+          "-1": 5,
+          "0": 1101,
+          "1": 164,
+          "2": 57,
+          "3": 31,
+          "ratio_-1": 0,
+          "ratio_0": 82,
+          "ratio_1": 12,
+          "ratio_2": 4,
+          "ratio_3": 2
+        },
+        {
+          "-1": 3,
+          "0": 165,
+          "1": 209,
+          "2": 423,
+          "3": 558,
+          "ratio_-1": 0,
+          "ratio_0": 12,
+          "ratio_1": 15,
+          "ratio_2": 31,
+          "ratio_3": 42
+        },
+        {
+          "-1": 3,
+          "0": 92,
+          "1": 40,
+          "2": 215,
+          "3": 1008,
+          "ratio_-1": 0,
+          "ratio_0": 6,
+          "ratio_1": 2,
+          "ratio_2": 15,
+          "ratio_3": 77
+        },
+        {
+          "-1": 11,
+          "0": 362,
+          "1": 62,
+          "2": 176,
+          "3": 747,
+          "ratio_-1": 0,
+          "ratio_0": 26,
+          "ratio_1": 4,
+          "ratio_2": 12,
+          "ratio_3": 58
+        },
+        {
+          "-1": 6,
+          "0": 55,
+          "1": 1083,
+          "2": 70,
+          "3": 144,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 81,
+          "ratio_2": 5,
+          "ratio_3": 10
+        },
+        {
+          "-1": 3,
+          "0": 1057,
+          "1": 70,
+          "2": 70,
+          "3": 158,
+          "ratio_-1": 0,
+          "ratio_0": 79,
+          "ratio_1": 5,
+          "ratio_2": 5,
+          "ratio_3": 11
+        },
+        {
+          "-1": 5,
+          "0": 67,
+          "1": 196,
+          "2": 51,
+          "3": 1039,
+          "ratio_-1": 0,
+          "ratio_0": 4,
+          "ratio_1": 14,
+          "ratio_2": 3,
+          "ratio_3": 79
+        }
+      ],
+      "chosen_index": 1,
+      "opponent_chosen_index": -2,
+      "index": -1
+    }
+  ]
+}

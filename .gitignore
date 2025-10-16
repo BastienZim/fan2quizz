@@ -10,14 +10,14 @@ wheels/
 .venv
 
 # Local SQLite database (generated at runtime)
-db/*
-!db/.gitkeep
+data/db/*
+!data/db/.gitkeep
 
 # Cache / scraped archive JSON (runtime generated)
-cache/*
-!cache/.gitkeep
-cache/archive/*
-!cache/archive/.gitkeep
+data/cache/*
+!data/cache/.gitkeep
+data/cache/archive/*
+!data/cache/archive/.gitkeep
 
 # Saved raw archive HTML snapshots
 archive_*.html
@@ -41,3 +41,9 @@ coverage/
 # Ruff / mypy caches (if added later)
 .ruff_cache/
 .mypy_cache/
+
+# Local secrets / env
+.env
+
+# Selenium session cookies
+quizypedia_cookies.json

@@ -166,19 +166,6 @@ class QuizDB:
         )
         return cur.fetchone()
 
-    def attempts_for_date_player(self, date: str, player: str):
-        cur = self.conn.execute(
-            """
-            SELECT a.id, a.score, a.total, a.duration_seconds, a.external_rank, a.answers, a.attempted_at, a.quiz_id
-            FROM attempts a
-            JOIN daily_quizzes d ON a.quiz_id = d.quiz_id
-            WHERE d.date=? AND a.player=?
-            ORDER BY a.attempted_at ASC
-            """,
-            (date, player),
-        )
-        return cur.fetchall()
-
     # Daily quiz
     def set_daily_quiz(self, date: str, quiz_id: int):
         self.conn.execute(
