@@ -47,3 +47,13 @@ coverage/
 
 # Selenium session cookies
 quizypedia_cookies.json
+
+# Personal mistakes tracking (private data)
+mistakes_log.md
+mistakes_by_category.md
+mistakes_log.json
+mistakes_history.json
+
+# Personal quiz results
+defi_du_jour_results.json
+defi_du_jour_debug.html

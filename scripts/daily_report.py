@@ -9,10 +9,10 @@ Features kept:
 Removed: weekly aggregation, legacy exploratory code, language toggle.
 
 Usage examples:
-  python scripts/daily_report.py                # yesterday
-  python scripts/daily_report.py 2025-10-14
-  python scripts/daily_report.py 2025-10-14 --no-cache --refresh
-  python scripts/daily_report.py --fun          # emojis + genz (default if no flags)
+  uv run scripts/daily_report.py                # yesterday
+  uv run scripts/daily_report.py 2025-10-14
+  uv run scripts/daily_report.py 2025-10-14 --no-cache --refresh
+  uv run scripts/daily_report.py --fun          # emojis + genz (default if no flags)
 """
 
 from __future__ import annotations
@@ -41,7 +41,7 @@ DB_PATH = ROOT / "data" / "db" / "quizypedia.db"
 CACHE_DIR = ROOT / "data" / "cache" / "archive"
 RATE_LIMIT_SECONDS = 0.2
 QUIZ_TOTAL_FALLBACK = 20
-SELECTED_PLAYERS = ["jutabouret", "louish", "KylianMbappe", "BastienZim", "kamaiel", "phllbrn", "DestroyOps","pascal-condamine", "ColonelProut"]
+SELECTED_PLAYERS = ["jutabouret", "louish", "KylianMbappe", "BastienZim", "kamaiel", "phllbrn", "DestroyOps","pascal-condamine", "ColonelProut","fpCraft"]
 REAL_NAME_MAP = {
     "jutabouret": "Julien",
     "louish": "Louis",
@@ -49,13 +49,15 @@ REAL_NAME_MAP = {
     "bastienzim": "Bastien",
     "kamaiel": "Raphael",
     "phllbrn": "Ophélie",
-    "DestroyOps":"Alexis",
-    "pascal-condamine":"Pascal",
-    "ColonelProut":"Lucas",
+    "destroyops": "Alexis",
+    "pascal-condamine": "Pascal",
+    "colonelprout": "Lucas",
+    "fpcraft": "François",
 }
 
 EMOJIS_ENABLED = False
 GENZ_ENABLED = False
+GENZ_EN_ENABLED = False  # English Gen-Z disabled by default
 LANG = 'fr'  # kept for backwards compatibility but no toggle now
 
 
@@ -261,28 +263,34 @@ def print_selected_players(results: List[Dict[str, Any]]):
         base=[["rang","bold yellow","right"],["joueur","white","left"],["nom","cyan","left"],["score","green","right"],["total","green","right"],["pct%","magenta","right"],["temps","blue","right"],["badges","bold","left"]]
         if GENZ_ENABLED:
             base.append(('gen-z fr','italic magenta','left'))
-            base.append(('gen-z en','italic magenta','left'))
+            if GENZ_EN_ENABLED:
+                base.append(('gen-z en','italic magenta','left'))
         for c, s, j in base:
             table.add_column(c, style=s, justify=j)
         for r in rows:
             vals=[str(r.get('rank','')), r.get('player',''), r.get('real_name') or '', str(r.get('good_responses','')), str(r.get('total','')), (f"{r['pct']:.1f}%" if isinstance(r.get('pct'),(int,float)) else ''), r.get('elapsed_fmt',''), r.get('badges','')]
             if GENZ_ENABLED:
                 vals.append(r.get('genz_fr', ''))
-                vals.append(r.get('genz_en', ''))
+                if GENZ_EN_ENABLED:
+                    vals.append(r.get('genz_en', ''))
             table.add_row(*vals)
         console.print(table)
     except Exception:
         print("\nJoueurs sélectionnés:")
         header=f"{'RANG':>4} {'JOUEUR':<15} {'NOM':<12} {'SCORE':>7} {'%':>6} {'TEMPS':>6} {'BADGES':<8}"
         if GENZ_ENABLED:
-            header += " GENZ_FR GENZ_EN"
+            header += " GENZ_FR"
+            if GENZ_EN_ENABLED:
+                header += " GENZ_EN"
         print(header)
         print('-'*len(header))
         for r in rows:
             pctd=(f"{r['pct']:.1f}%" if isinstance(r.get('pct'),(int,float)) else '')
             line=f"{str(r.get('rank','')):>4} {r.get('player',''):<15} {(r.get('real_name') or ''):<12} {str(r.get('good_responses','')):>7} {pctd:>6} {r.get('elapsed_fmt',''):>6} {r.get('badges',''):<8}"
             if GENZ_ENABLED:
-                line += f" {r.get('genz_fr','')} {r.get('genz_en','')}"
+                line += f" {r.get('genz_fr','')}"
+                if GENZ_EN_ENABLED:
+                    line += f" {r.get('genz_en','')}"
             print(line)
 
     LAST_SELECTED_ROWS = rows  # store final (ordered) rows for saving/interrupt use
@@ -460,7 +468,9 @@ def slack_table(rows: List[Dict[str, Any]]) -> str:
         return "```\n(Aucune donnée)\n```"
     cols = ['rank', 'player', 'good_responses', 'total', 'pct', 'elapsed_fmt', 'badges']
     if GENZ_ENABLED:
-        cols += ['genz_fr', 'genz_en']
+        cols.append('genz_fr')
+        if GENZ_EN_ENABLED:
+            cols.append('genz_en')
 
     header_labels = {
         'rank': '#',
@@ -575,7 +585,9 @@ def serialize_rows(rows: List[Dict[str, Any]], fmt: str) -> str:
     # Column order
     cols = ['rank','player','real_name','good_responses','total','pct','elapsed_fmt','badges']
     if GENZ_ENABLED:
-        cols += ['genz_fr','genz_en']
+        cols.append('genz_fr')
+        if GENZ_EN_ENABLED:
+            cols.append('genz_en')
     if fmt == 'json':
         return json.dumps(rows, ensure_ascii=False, indent=2)
     if fmt in ('csv','tsv'):
@@ -642,6 +654,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument('--cache-dir',help='Override cache directory')
     p.add_argument('--emojis',action='store_true',help='Enable emoji badges')
     p.add_argument('--genz',action='store_true',help='Enable Gen-Z banter')
+    p.add_argument('--genz-en',action='store_true',help='Enable English Gen-Z column (requires --genz or --fun)')
     p.add_argument('--fun',action='store_true',help='Shortcut: enable both emojis + genz')
     p.add_argument('--save-table', help='Chemin fichier pour sauvegarder la table (auto format by extension)')
     p.add_argument('--clipboard', action='store_true', help='Copier la table finale dans le presse-papiers (texte brut)')
@@ -673,7 +686,7 @@ def main(argv: List[str]) -> int:
         date_str=(_date.today()-timedelta(days=1)).strftime('%Y-%m-%d')
     else:
         date_str=validate_date(args.date)
-    global CACHE_DIR,EMOJIS_ENABLED,GENZ_ENABLED
+    global CACHE_DIR,EMOJIS_ENABLED,GENZ_ENABLED,GENZ_EN_ENABLED
     if args.cache_dir:
         CACHE_DIR = Path(args.cache_dir)
     if not (args.emojis or args.genz or args.fun):
@@ -682,6 +695,8 @@ def main(argv: List[str]) -> int:
     else:
         EMOJIS_ENABLED = bool(args.emojis or args.fun)
         GENZ_ENABLED = bool(args.genz or args.fun)
+    # English Gen-Z only enabled if explicitly requested
+    GENZ_EN_ENABLED = bool(args.genz_en and GENZ_ENABLED)
     use_cache = not args.no_cache
     refresh = bool(args.refresh)
     try:

@@ -9,7 +9,7 @@ and formats it into a human-readable report showing:
 The quiz data is embedded in JavaScript variables (DC_DATA and DC_USER) in the HTML.
 
 Usage:
-    python parse_defi_results.py
+    uv run scripts/parse_results.py
 
 Output:
     - Console: Formatted quiz results with emojis

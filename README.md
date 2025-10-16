@@ -35,24 +35,42 @@ Parses your personal quiz results from a saved HTML file.
 * Question-by-question breakdown
 * JSON export for further processing
 
+### 3. Mistakes Tracker (`scripts/track_mistakes.py` & `scripts/accumulate_mistakes.py`)
+Track and analyze all your incorrect answers to improve your Quizypedia skills.
+
+**Features:**
+* Extract mistakes from quiz results
+* Generate comprehensive mistakes log
+* Group mistakes by category to identify weak areas
+* Track mistakes over time with historical database
+* Beautiful Markdown reports for easy review
+
 ## Installation
 
+> **📦 This project uses [UV](https://github.com/astral-sh/uv)** - a blazingly fast Python package installer and resolver.
+> 
+> **New to UV?** Check out the complete [UV Setup Guide](UV_SETUP.md) for installation and usage details.
+
+**Quick Setup:**
+
 ```bash
-# Clone and setup
+# 1. Install UV (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 2. Clone and setup
 git clone https://github.com/BastienZim/fan2quizz.git
 cd fan2quizz
-python -m venv .venv && source .venv/bin/activate
 
-# Install package in editable mode
-pip install -e .
+# 3. Install package in editable mode with uv
+uv pip install -e .
 
-# Or use requirements.txt
-pip install -r requirements.txt
+# Or install from requirements.txt
+uv pip install -r requirements.txt
 ```
 
 ## Quick Start
 
-### Using Command-Line Tools (after `pip install -e .`)
+### Using Command-Line Tools (after `uv pip install -e .`)
 ```bash
 # Daily report (yesterday by default)
 daily-report
@@ -66,29 +84,57 @@ parse-results
 ### Using Scripts Directly
 ```bash
 # Yesterday's report (default)
-python scripts/daily_report.py
+uv run scripts/daily_report.py
 
 # Specific date
-python scripts/daily_report.py 2025-10-15
+uv run scripts/daily_report.py 2025-10-15
 
 # With fun emoji commentary
-python scripts/daily_report.py --fun
+uv run scripts/daily_report.py --fun
 
 # Save table to CSV
-python scripts/daily_report.py --save-table out/leaderboard.csv
+uv run scripts/daily_report.py --save-table out/leaderboard.csv
 
 # Copy Slack-formatted table to clipboard
-python scripts/daily_report.py --clipboard-slack
+uv run scripts/daily_report.py --clipboard-slack
 ```
 
 ### Personal Results Parser
 ```bash
 # Parse saved HTML file (from browser or scraper)
-python scripts/parse_results.py
+uv run scripts/parse_results.py
 
 # Reads: defi_du_jour_debug.html
 # Outputs: Console report + defi_du_jour_results.json
 ```
+
+### Mistakes Tracker
+```bash
+# EASIEST: Complete workflow (parse + track mistakes)
+uv run scripts/process_quiz.py
+
+# OR manually:
+# Track mistakes from current quiz session
+uv run scripts/track_mistakes.py
+# Generates: mistakes_log.md, mistakes_by_category.md, mistakes_log.json
+
+# Accumulate mistakes over time (run after each quiz)
+uv run scripts/accumulate_mistakes.py
+# Updates: mistakes_history.json
+# Regenerates: mistakes_log.md (with ALL historical mistakes)
+```
+
+**Workflow:**
+1. Complete daily quiz on quizypedia.fr
+2. Save HTML or run scraper
+3. Run `process_quiz.py` (or `parse_results.py` + `accumulate_mistakes.py` manually)
+4. Review `mistakes_log.md` to learn from errors
+
+**Output Files:**
+- `mistakes_log.md` - Chronological list of all mistakes
+- `mistakes_by_category.md` - Mistakes grouped by category (shows weak areas)
+- `mistakes_history.json` - Master database of all mistakes
+- `mistakes_log.json` - Current session mistakes only
 
 ## Daily Report Options
 
@@ -112,7 +158,7 @@ python scripts/parse_results.py
 
 ### Optional Dependencies
 ```bash
-pip install rich pyperclip wcwidth
+uv pip install rich pyperclip wcwidth
 ```
 - **rich**: Better console tables
 - **pyperclip**: Clipboard support
@@ -189,13 +235,13 @@ If no attempt exists the script tells you how to proceed (set daily quiz + recor
 To see your own chosen answers and the correct ones directly from the site (without first recording them manually):
 1. Login (heuristic WordPress endpoints) to persist cookies:
 ```bash
-python -m src.cli login --email you@example.com --password 'yourpass' --session .quizypedia_session.json
+uv run -m fan2quizz.cli login --email you@example.com --password 'yourpass' --session .quizypedia_session.json
 ```
 2. Fetch live page & show answers:
 ```bash
-python -m src.cli daily-live --session .quizypedia_session.json
+uv run -m fan2quizz.cli daily-live --session .quizypedia_session.json
 ```
-Add `--json` for structured output. The parser is heuristic; if classes or labels change, update `parse_daily_live` in `src/scraper.py`.
+Add `--json` for structured output. The parser is heuristic; if classes or labels change, update `parse_daily_live` in `fan2quizz/scraper.py`.
 
 ## Data (very short)
 Tables: quizzes, questions, attempts, daily_quizzes (+ FTS virtual table). Schema lives in `src/database.py`.
@@ -236,7 +282,7 @@ QUIZY_COOKIE=sessionid=xxx; csrftoken=yyy  # (optional, for faster auth)
 ```
 3. Run the scraper:
 ```bash
-python scrape_quizypedia_defi_du_jour.py
+uv run scrape_quizypedia_defi_du_jour.py
 ```
 
 ### Features
@@ -270,7 +316,7 @@ Output example:
 After running the scraper, the HTML is saved to `defi_du_jour_debug.html`. Use the parser to get a formatted report:
 
 ```bash
-python parse_defi_results.py
+uv run parse_defi_results.py
 ```
 
 This produces:

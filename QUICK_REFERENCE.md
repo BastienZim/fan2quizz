@@ -3,8 +3,8 @@
 ## Installation
 ```bash
 cd /home/bastienzim/Documents/perso/fan2quizz
-source .venv/bin/activate
-pip install -e .  # Already done!
+# Install with uv (make sure uv is installed first)
+uv pip install -e .
 ```
 
 ## Commands
@@ -34,8 +34,9 @@ parse-results
 
 ## Direct Script Execution (Alternative)
 ```bash
-python scripts/daily_report.py 2025-10-15
-python scripts/parse_results.py
+uv run scripts/daily_report.py 2025-10-15
+uv run scripts/parse_results.py
+uv run scripts/process_quiz.py  # Mistakes tracking
 ```
 
 ## Project Structure
