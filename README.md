@@ -45,6 +45,28 @@ Track and analyze all your incorrect answers to improve your Quizypedia skills.
 * Track mistakes over time with historical database
 * Beautiful Markdown reports for easy review
 
+### 4. Show Mistakes by Date (`scripts/show_mistakes_by_date.py`)
+View your mistakes from any specific quiz date by fetching data from the archive.
+
+**Features:**
+* Fetch quiz data from any archive date (e.g., `https://www.quizypedia.fr/defi-du-jour/archives/2025/10/20/`)
+* Display only mistakes or all questions with `--all` flag
+* Automatic authentication using `.env` credentials
+* Support for multiple date formats (YYYY-MM-DD, DD/MM/YYYY, etc.)
+* Detailed mistake information with hints and all answer choices
+
+### 5. Weekly Mistakes Report (`scripts/weekly_mistakes_report.py`)
+Generate comprehensive reports for a week or any custom date range.
+
+**Features:**
+* Fetch and analyze multiple days of quiz data automatically
+* Generate detailed weekly or monthly reports
+* Executive summary with statistics and trends
+* Daily breakdown table with scores
+* Mistakes grouped by category and date
+* Optional update of `mistakes_history.json`
+* Flexible date ranges (last 7 days, last 14 days, custom ranges)
+
 ## Installation
 
 > **📦 This project uses [UV](https://github.com/astral-sh/uv)** - a blazingly fast Python package installer and resolver.
@@ -135,6 +157,59 @@ uv run scripts/accumulate_mistakes.py
 - `mistakes_by_category.md` - Mistakes grouped by category (shows weak areas)
 - `mistakes_history.json` - Master database of all mistakes
 - `mistakes_log.json` - Current session mistakes only
+
+### Show Mistakes by Date
+```bash
+# Show mistakes from a specific date
+uv run scripts/show_mistakes_by_date.py 2025-10-20
+uv run scripts/show_mistakes_by_date.py 20/10/2025
+
+# Show yesterday's mistakes (default)
+uv run scripts/show_mistakes_by_date.py
+
+# Show all questions, not just mistakes
+uv run scripts/show_mistakes_by_date.py 2025-10-20 --all
+
+# Save HTML for later analysis
+uv run scripts/show_mistakes_by_date.py 2025-10-20 --save archive.html
+```
+
+**Use Cases:**
+- Review mistakes from any past date
+- Check your performance on specific quizzes
+- Retrieve quiz data you didn't save at the time
+
+### Weekly Mistakes Report
+```bash
+# Generate report for last 7 days (default)
+uv run scripts/weekly_mistakes_report.py
+
+# Last 14 days
+uv run scripts/weekly_mistakes_report.py --days 14
+
+# Specific date range
+uv run scripts/weekly_mistakes_report.py --start 2025-10-14 --end 2025-10-20
+
+# Custom output file with progress
+uv run scripts/weekly_mistakes_report.py --days 7 --output MY_REPORT.md --verbose
+
+# Update historical database
+uv run scripts/weekly_mistakes_report.py --days 14 --update-history --verbose
+```
+
+**Output:** `WEEKLY_MISTAKES_REPORT.md` (or custom filename)
+Contains:
+- Executive summary with statistics
+- Daily breakdown table
+- Top mistake categories
+- Detailed list of all mistakes
+- Mistakes grouped by category
+
+**Use Cases:**
+- Weekly performance review
+- Identify weak knowledge areas
+- Track improvement over time
+- Generate study guides for specific periods
 
 ## Daily Report Options
 

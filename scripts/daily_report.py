@@ -129,13 +129,13 @@ def generate_genz_daily(pct: Optional[float], rank_val: Optional[int], et_val: O
         'low_rank': ['NPC ENERGY 💤','BACKGROUND NPC 💤','LOWKEY AF 💤','WHERE U AT? 👀'],
     }
     pools_fr = {
-        'perfect_speed': ['PERF ÉCLAIR ⚡','PARFAIT SPEED ⚡','IMBATTABLE ⚡','ULTRA RAPIDE ⚡'],
-        'perfect': ['SANS FAUTE 🌟','PARFAIT 🌟','FULL LOCK 🔐','CLUTCH 🌟'],
-        't95': ['EN FEU 🔥','TROP FORT 🔥','ÇA CHAUFFE 🔥','GOAT 🔥'],
-        't80': ['SOLIDE 😎','VALIDÉ 😎','ÇA CUIT 👨‍🍳','ON CUISINE 🍳'],
-        't60': ['MOYEN 😬','EN PROGRESSION 🤏','CONTINUE 🛠️','NE LÂCHE RIEN 💪'],
-        'low': ['RIP 💀','AÏE 💀','DOWN BAD 💀','FLOP 💀'],
-        'low_rank': ['PNJ 💤','FIGURANT 💤','ON TE VOIT PAS 👀','BACKGROUND 💤'],
+        'perfect_speed': ['PERF ÉCLAIR ⚡','PARFAIT SPEED ⚡','IMBATTABLE ⚡','ULTRA RAPIDE ⚡','SONIC VIBE ⚡','TURBO MODE ⚡','FLASH MCQUEEN ⚡','VITESSE LUMIÈRE ⚡'],
+        'perfect': ['SANS FAUTE 🌟','PARFAIT 🌟','FULL LOCK 🔐','CLUTCH 🌟','20/20 🌟','IMPECCABLE 🌟','MASTERCLASS 🌟','LÉGENDE 🌟','100% VALIDÉ ✅'],
+        't95': ['EN FEU 🔥','TROP FORT 🔥','ÇA CHAUFFE 🔥','GOAT 🔥','MEGA CHAUD 🔥','ÉNORME 🔥','MONSTRUEUX 💪','GÉANT 🔥','T\'ES CHAUD 🔥'],
+        't80': ['SOLIDE 😎','VALIDÉ 😎','ÇA CUIT 👨‍🍳','ON CUISINE 🍳','BG 😎','STYLÉ 😎','TRANQUILLE 😎','BIEN JOUÉ 👍','PROPRE 😎','ÇA PASSE 👌'],
+        't60': ['MOYEN 😬','EN PROGRESSION 🤏','CONTINUE 🛠️','NE LÂCHE RIEN 💪','PEUT MIEUX FAIRE 📈','BIENTÔT LÀ 🤏','ON Y CROIT 🙏','PRESQUE 🤷','ALLEZ 💪','REVIENS PLUS FORT 💯'],
+        'low': ['RIP 💀','AÏE 💀','DOWN BAD 💀','FLOP 💀','RATÉ 💀','GAME OVER 💀','OUPS 💀','PAS OUF 💀','AÏEAÏEAÏE 😬','YIKES 😬'],
+        'low_rank': ['PNJ 💤','FIGURANT 💤','ON TE VOIT PAS 👀','BACKGROUND 💤','FANTÔME 👻','INVISIBLE 👻','T\'ES OÙ? 👀','ABSENT 💤','EN ROUE LIBRE 🛞','PERDU 🗺️'],
     }
     en = fr = ''
     if isinstance(pct, (int, float)):
