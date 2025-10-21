@@ -98,6 +98,20 @@ Generate comprehensive reports for a week or any custom date range.
 * Optional update of `mistakes_history.json`
 * Flexible date ranges (last 7 days, last 14 days, custom ranges)
 
+### 6. Wikipedia-Enhanced Mistake Reports (`scripts/mistakes_with_wikipedia.py`)
+Generate enriched mistake reports with automatic Wikipedia links for learning.
+
+**Features:**
+* Automatic Wikipedia link generation for all correct answers
+* Both chronological and category-grouped report formats
+* Filter by date range (e.g., last 7 days, last 30 days)
+* Summary statistics showing top mistake categories
+* Smart caching to minimize API calls
+* No external dependencies required (uses Python standard library)
+* Perfect for creating personalized study guides
+
+See [Wikipedia Mistakes Report Documentation](docs/WIKIPEDIA_MISTAKES_REPORT.md) for detailed usage.
+
 ## Installation
 
 > **📦 This project uses [UV](https://github.com/astral-sh/uv)** - a blazingly fast Python package installer and resolver.
@@ -234,6 +248,34 @@ Contains:
 - Daily breakdown table
 - Top mistake categories
 - Detailed list of all mistakes
+
+### Wikipedia-Enhanced Mistake Reports
+```bash
+# Generate full report with Wikipedia links
+uv run scripts/mistakes_with_wikipedia.py
+
+# Last 7 days with Wikipedia links
+uv run scripts/mistakes_with_wikipedia.py --days 7
+
+# Group by category instead of chronological
+uv run scripts/mistakes_with_wikipedia.py --group-by-category
+
+# Fast generation without Wikipedia links
+uv run scripts/mistakes_with_wikipedia.py --no-wikipedia
+
+# Summary statistics only
+uv run scripts/mistakes_with_wikipedia.py --summary-only
+
+# Custom output file
+uv run scripts/mistakes_with_wikipedia.py --days 30 --output monthly_study_guide.md
+```
+
+**Output:** `output/reports/mistakes_with_wikipedia.md` (or custom filename)
+Contains:
+- All mistakes with Wikipedia resource links
+- Category grouping option for topic-based study
+- Summary statistics showing weak areas
+- Clickable links to learn more about each topic
 - Mistakes grouped by category
 
 **Use Cases:**
