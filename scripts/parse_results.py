@@ -13,11 +13,18 @@ Usage:
 
 Output:
     - Console: Formatted quiz results with emojis
-    - File: defi_du_jour_results.json (structured JSON data)
+    - File: data/results/defi_du_jour_results.json (structured JSON data)
 """
 import json
 import re
 from pathlib import Path
+
+# Project root
+ROOT = Path(__file__).parent.parent
+
+# File paths
+HTML_FILE = ROOT / "data" / "html" / "defi_du_jour_debug.html"
+OUTPUT_FILE = ROOT / "data" / "results" / "defi_du_jour_results.json"
 
 def extract_dc_data_from_html(html_path):
     """Extract the DC_DATA JavaScript variable from the HTML.
@@ -118,8 +125,7 @@ def format_results(questions, user_info):
             print(f"   Correct answer: {correct_answer}")
 
 if __name__ == "__main__":
-    html_file = "defi_du_jour_debug.html"
-    questions, user_info = extract_dc_data_from_html(html_file)
+    questions, user_info = extract_dc_data_from_html(HTML_FILE)
     format_results(questions, user_info)
     
     # Also save as JSON
@@ -127,8 +133,7 @@ if __name__ == "__main__":
         "user_info": user_info,
         "questions": questions
     }
-    output_file = Path("defi_du_jour_results.json")
-    output_file.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8')
+    OUTPUT_FILE.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8')
     print(f"\n\n{'=' * 80}")
-    print(f"Full results saved to: {output_file}")
+    print(f"Full results saved to: {OUTPUT_FILE}")
     print(f"{'=' * 80}")

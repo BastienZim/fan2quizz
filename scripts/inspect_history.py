@@ -27,8 +27,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Configuration
 CACHE_DIR = ROOT / "data" / "cache" / "archive"
-MISTAKES_FILE = ROOT / "mistakes_history.json"
-RESULTS_FILE = ROOT / "defi_du_jour_results.json"
+MISTAKES_FILE = ROOT / "data" / "results" / "mistakes_history.json"
+RESULTS_FILE = ROOT / "data" / "results" / "defi_du_jour_results.json"
 
 # Friend list for comparison
 FRIENDS = ["jutabouret", "louish", "KylianMbappe", "BastienZim", "kamaiel", 

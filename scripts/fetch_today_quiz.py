@@ -12,7 +12,7 @@ Usage:
     uv run scripts/fetch_today_quiz.py --email ... --password ...  # Override credentials
 
 Output:
-    - defi_du_jour_debug.html (overwrites existing file with today's quiz)
+    - data/html/defi_du_jour_debug.html (overwrites existing file with today's quiz)
 """
 import sys
 from pathlib import Path
@@ -24,6 +24,9 @@ sys.path.insert(0, str(ROOT))
 
 from fan2quizz.scraper import QuizypediaScraper
 from fan2quizz.utils import RateLimiter
+
+# File paths
+OUTPUT_FILE = ROOT / "data" / "html" / "defi_du_jour_debug.html"
 
 
 def load_env_credentials():
@@ -96,9 +99,9 @@ def fetch_and_save_today_quiz(email: str = None, password: str = None, cookie: s
         return 1
     
     # Save to file
-    output_file = ROOT / "defi_du_jour_debug.html"
-    output_file.write_text(html, encoding='utf-8')
-    print(f"💾 Saved to: {output_file}")
+    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_FILE.write_text(html, encoding='utf-8')
+    print(f"💾 Saved to: {OUTPUT_FILE}")
     
     # Check if it contains quiz data
     if 'DC_DATA' in html:

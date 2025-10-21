@@ -26,8 +26,8 @@ Usage:
     uv run scripts/weekly_mistakes_report.py --verbose
 
 Output:
-    - WEEKLY_MISTAKES_REPORT.md (or custom filename)
-    - Optionally updates mistakes_history.json
+    - output/reports/WEEKLY_MISTAKES_REPORT.md (or custom filename)
+    - Optionally updates data/results/mistakes_history.json
 """
 
 import sys
@@ -46,6 +46,10 @@ if str(ROOT) not in sys.path:
 
 from fan2quizz.scraper import QuizypediaScraper  # noqa: E402
 from fan2quizz.utils import RateLimiter  # noqa: E402
+
+# File paths
+DEFAULT_OUTPUT = ROOT / "output" / "reports" / "WEEKLY_MISTAKES_REPORT.md"
+HISTORY_FILE = ROOT / "data" / "results" / "mistakes_history.json"
 
 # Cache directory for HTML files
 CACHE_DIR = ROOT / "data" / "cache" / "quiz_html"
@@ -420,8 +424,8 @@ Note: The script automatically uses credentials from .env file.
     )
     parser.add_argument(
         '--output',
-        default='WEEKLY_MISTAKES_REPORT.md',
-        help='Output filename (default: WEEKLY_MISTAKES_REPORT.md)'
+        default=None,
+        help='Output filename (default: output/reports/WEEKLY_MISTAKES_REPORT.md)'
     )
     parser.add_argument(
         '--verbose',
@@ -431,7 +435,7 @@ Note: The script automatically uses credentials from .env file.
     parser.add_argument(
         '--update-history',
         action='store_true',
-        help='Also update mistakes_history.json with fetched data'
+        help='Also update data/results/mistakes_history.json with fetched data'
     )
     parser.add_argument(
         '--no-cache',
@@ -513,19 +517,19 @@ Note: The script automatically uses credentials from .env file.
     report = generate_markdown_report(quiz_data, start_str, end_str)
     
     # Save report
-    output_path = ROOT / args.output
+    output_path = Path(args.output) if args.output else DEFAULT_OUTPUT
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(report, encoding='utf-8')
     print(f"✅ Report saved to: {output_path}")
     
     # Update history if requested
     if args.update_history:
         print()
-        print("📚 Updating mistakes_history.json...")
-        history_path = ROOT / 'mistakes_history.json'
+        print(f"📚 Updating {HISTORY_FILE}...")
         
         # Load existing history
-        if history_path.exists():
-            with open(history_path, 'r', encoding='utf-8') as f:
+        if HISTORY_FILE.exists():
+            with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
                 history = json.load(f)
         else:
             history = []
@@ -540,7 +544,8 @@ Note: The script automatically uses credentials from .env file.
         
         if new_mistakes:
             history.extend(new_mistakes)
-            with open(history_path, 'w', encoding='utf-8') as f:
+            HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+            with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
                 json.dump(history, f, indent=2, ensure_ascii=False)
             print(f"✅ Added {len(new_mistakes)} new mistakes to history")
         else:

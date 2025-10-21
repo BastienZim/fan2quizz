@@ -54,6 +54,9 @@ from fan2quizz.scraper import QuizypediaScraper
 
 ROOT = Path(__file__).parent.parent
 
+# File paths
+HISTORY_FILE = ROOT / "data" / "results" / "mistakes_history.json"
+
 
 def load_env_credentials():
     """Load credentials from .env file.
@@ -388,11 +391,9 @@ Examples:
     
     args = parser.parse_args()
     
-    history_path = Path('mistakes_history.json')
-    
     # Check mode
     if args.check:
-        check_existing_dates(history_path)
+        check_existing_dates(HISTORY_FILE)
         return 0
     
     # Determine dates to fetch
@@ -416,7 +417,7 @@ Examples:
     dates_to_fetch = sorted(set(dates_to_fetch))
     
     # Load existing history
-    history = load_mistakes_history(history_path)
+    history = load_mistakes_history(HISTORY_FILE)
     existing_dates = get_available_dates_with_mistakes(history)
     
     # Filter out existing if requested
@@ -475,11 +476,11 @@ Examples:
     if new_mistakes_count > 0:
         # Sort by date and question number
         history.sort(key=lambda x: (x['date'], x['question_number']))
-        save_mistakes_history(history_path, history)
+        save_mistakes_history(HISTORY_FILE, history)
         
         print("\n" + "=" * 60)
         print(f"✅ Added {new_mistakes_count} mistake(s) from {len(successful_dates)} date(s)")
-        print(f"📝 Updated {history_path}")
+        print(f"📝 Updated {HISTORY_FILE}")
         print("=" * 60)
         
         # Regenerate study guide if requested

@@ -22,6 +22,10 @@ from typing import List, Dict, Any
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# File paths
+MISTAKES_FILE = ROOT / "data" / "results" / "mistakes_history.json"
+DEFAULT_OUTPUT = ROOT / "output" / "reports" / "FAILED_QUESTIONS_EXHAUSTIVE.md"
+
 
 # Category to domain mapping
 DOMAIN_MAP = {
@@ -68,12 +72,11 @@ LEARNING_NOTES = {
 
 def load_mistakes() -> List[Dict[str, Any]]:
     """Load mistakes from JSON file."""
-    mistakes_file = ROOT / "mistakes_history.json"
-    if not mistakes_file.exists():
-        print("❌ No mistakes_history.json file found!")
+    if not MISTAKES_FILE.exists():
+        print(f"❌ No {MISTAKES_FILE} file found!")
         return []
     
-    with open(mistakes_file, 'r', encoding='utf-8') as f:
+    with open(MISTAKES_FILE, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
@@ -398,7 +401,8 @@ Examples:
         output += generate_sequential(mistakes, args.show_mistakes, args.show_choices)
     
     # Write to file
-    output_file = ROOT / args.output
+    output_file = Path(args.output) if args.output else DEFAULT_OUTPUT
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     output_file.write_text(output, encoding='utf-8')
     
     print(f"✅ Generated: {output_file}")

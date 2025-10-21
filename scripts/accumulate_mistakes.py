@@ -9,14 +9,23 @@ Usage:
     uv run scripts/accumulate_mistakes.py
     
 This will:
-1. Read the current defi_du_jour_results.json
+1. Read the current data/results/defi_du_jour_results.json
 2. Extract new mistakes
-3. Add them to mistakes_history.json (preserving old data)
-4. Regenerate the mistakes_log.md and mistakes_by_category.md with ALL mistakes
+3. Add them to data/results/mistakes_history.json (preserving old data)
+4. Regenerate the output/reports/mistakes_log.md and output/reports/mistakes_by_category.md with ALL mistakes
 """
 import json
 from pathlib import Path
 from typing import List, Dict, Any
+
+# Project root
+ROOT = Path(__file__).parent.parent
+
+# File paths
+RESULTS_FILE = ROOT / "data" / "results" / "defi_du_jour_results.json"
+HISTORY_FILE = ROOT / "data" / "results" / "mistakes_history.json"
+MISTAKES_MD = ROOT / "output" / "reports" / "mistakes_log.md"
+MISTAKES_BY_CAT = ROOT / "output" / "reports" / "mistakes_by_category.md"
 
 
 def load_quiz_results(json_path: Path) -> Dict[str, Any]:
@@ -83,17 +92,17 @@ def extract_mistakes(data: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 def load_historical_mistakes() -> List[Dict[str, Any]]:
     """Load existing historical mistakes."""
-    history_path = Path('mistakes_history.json')
-    if history_path.exists():
-        with open(history_path, 'r', encoding='utf-8') as f:
+    if HISTORY_FILE.exists():
+        with open(HISTORY_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     return []
 
 
 def save_historical_mistakes(mistakes: List[Dict[str, Any]]):
     """Save historical mistakes to file."""
-    history_path = Path('mistakes_history.json')
-    with open(history_path, 'w', encoding='utf-8') as f:
+    # Ensure directory exists
+    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
         json.dump(mistakes, f, indent=2, ensure_ascii=False)
 
 
@@ -194,16 +203,16 @@ def format_mistakes_by_category(mistakes: List[Dict[str, Any]]) -> str:
 
 def main():
     """Main execution function."""
-    # Path to the current results file
-    results_path = Path('defi_du_jour_results.json')
+    # Ensure output directories exist
+    MISTAKES_MD.parent.mkdir(parents=True, exist_ok=True)
     
-    if not results_path.exists():
-        print(f"❌ Error: {results_path} not found")
+    if not RESULTS_FILE.exists():
+        print(f"❌ Error: {RESULTS_FILE} not found")
         print("Please run parse_results.py first to generate quiz results.")
         return
     
     print("📖 Loading current quiz results...")
-    data = load_quiz_results(results_path)
+    data = load_quiz_results(RESULTS_FILE)
     
     print("🔍 Extracting new mistakes...")
     new_mistakes = extract_mistakes(data)
@@ -241,15 +250,13 @@ def main():
     # Generate reports
     print("📄 Generating complete mistakes log...")
     md_content = format_mistakes_markdown(all_mistakes)
-    output_path = Path('mistakes_log.md')
-    output_path.write_text(md_content, encoding='utf-8')
-    print(f"✅ Saved to {output_path}")
+    MISTAKES_MD.write_text(md_content, encoding='utf-8')
+    print(f"✅ Saved to {MISTAKES_MD}")
     
     print("📊 Generating mistakes by category...")
     category_content = format_mistakes_by_category(all_mistakes)
-    category_path = Path('mistakes_by_category.md')
-    category_path.write_text(category_content, encoding='utf-8')
-    print(f"✅ Saved to {category_path}")
+    MISTAKES_BY_CAT.write_text(category_content, encoding='utf-8')
+    print(f"✅ Saved to {MISTAKES_BY_CAT}")
     
     # Print summary
     print("\n" + "=" * 60)
@@ -276,8 +283,8 @@ def main():
     
     print(f"\n📖 Added {len(new_mistakes)} new mistakes to your learning log!")
     print("Review your complete history in:")
-    print(f"   - {output_path} (chronological)")
-    print(f"   - {category_path} (by category)")
+    print(f"   - {MISTAKES_MD} (chronological)")
+    print(f"   - {MISTAKES_BY_CAT} (by category)")
 
 
 if __name__ == '__main__':

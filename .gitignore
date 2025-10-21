@@ -22,6 +22,13 @@ data/cache/archive/*
 # Saved raw archive HTML snapshots
 archive_*.html
 
+# Generated output files (reports, tests, results)
+output/
+data/results/*
+!data/results/.gitkeep
+data/html/*
+!data/html/.gitkeep
+
 # Jupyter execution artifacts
 *.ipynb_checkpoints/
 
@@ -47,13 +54,3 @@ coverage/
 
 # Selenium session cookies
 quizypedia_cookies.json
-
-# Personal mistakes tracking (private data)
-mistakes_log.md
-mistakes_by_category.md
-mistakes_log.json
-mistakes_history.json
-
-# Personal quiz results
-defi_du_jour_results.json
-defi_du_jour_debug.html

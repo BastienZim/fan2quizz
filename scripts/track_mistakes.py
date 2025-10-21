@@ -14,12 +14,21 @@ Usage:
     uv run scripts/track_mistakes.py
     
 Output:
-    - mistakes_log.md: Markdown document with all mistakes
-    - mistakes_log.json: JSON file with structured mistake data
+    - output/reports/mistakes_log.md: Markdown document with all mistakes
+    - data/results/mistakes_log.json: JSON file with structured mistake data
 """
 import json
 from pathlib import Path
 from typing import List, Dict, Any
+
+# Project root
+ROOT = Path(__file__).parent.parent
+
+# File paths
+RESULTS_FILE = ROOT / "data" / "results" / "defi_du_jour_results.json"
+MISTAKES_MD = ROOT / "output" / "reports" / "mistakes_log.md"
+MISTAKES_BY_CAT = ROOT / "output" / "reports" / "mistakes_by_category.md"
+MISTAKES_JSON = ROOT / "data" / "results" / "mistakes_log.json"
 
 
 def load_quiz_results(json_path: Path) -> Dict[str, Any]:
@@ -204,16 +213,17 @@ def format_mistakes_by_category(mistakes: List[Dict[str, Any]]) -> str:
 
 def main():
     """Main execution function."""
-    # Path to the results file
-    results_path = Path('defi_du_jour_results.json')
+    # Ensure output directories exist
+    MISTAKES_MD.parent.mkdir(parents=True, exist_ok=True)
+    MISTAKES_JSON.parent.mkdir(parents=True, exist_ok=True)
     
-    if not results_path.exists():
-        print(f"❌ Error: {results_path} not found")
+    if not RESULTS_FILE.exists():
+        print(f"❌ Error: {RESULTS_FILE} not found")
         print("Please make sure you have run the parse_results.py script first.")
         return
     
     print("📖 Loading quiz results...")
-    data = load_quiz_results(results_path)
+    data = load_quiz_results(RESULTS_FILE)
     
     print("🔍 Extracting mistakes...")
     mistakes = extract_mistakes(data)
@@ -227,22 +237,19 @@ def main():
     # Generate chronological mistakes log
     print("📄 Generating mistakes log (chronological)...")
     md_content = format_mistakes_markdown(mistakes)
-    output_path = Path('mistakes_log.md')
-    output_path.write_text(md_content, encoding='utf-8')
-    print(f"✅ Saved to {output_path}")
+    MISTAKES_MD.write_text(md_content, encoding='utf-8')
+    print(f"✅ Saved to {MISTAKES_MD}")
     
     # Generate category-based analysis
     print("📊 Generating mistakes by category...")
     category_content = format_mistakes_by_category(mistakes)
-    category_path = Path('mistakes_by_category.md')
-    category_path.write_text(category_content, encoding='utf-8')
-    print(f"✅ Saved to {category_path}")
+    MISTAKES_BY_CAT.write_text(category_content, encoding='utf-8')
+    print(f"✅ Saved to {MISTAKES_BY_CAT}")
     
     # Save JSON for further processing
-    json_path = Path('mistakes_log.json')
-    with open(json_path, 'w', encoding='utf-8') as f:
+    with open(MISTAKES_JSON, 'w', encoding='utf-8') as f:
         json.dump(mistakes, f, indent=2, ensure_ascii=False)
-    print(f"✅ Saved JSON to {json_path}")
+    print(f"✅ Saved JSON to {MISTAKES_JSON}")
     
     # Print summary
     print("\n" + "=" * 60)
@@ -267,8 +274,8 @@ def main():
             print(f"  - {cat}: {count}")
     
     print("\n📖 Review your mistakes in:")
-    print(f"   - {output_path} (chronological)")
-    print(f"   - {category_path} (by category)")
+    print(f"   - {MISTAKES_MD} (chronological)")
+    print(f"   - {MISTAKES_BY_CAT} (by category)")
 
 
 if __name__ == '__main__':

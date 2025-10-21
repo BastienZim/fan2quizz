@@ -13,6 +13,37 @@ Simplified toolset for Quizypedia daily challenges:
 1. **Daily Report** - Fetch and display leaderboard from public archive
 2. **Personal Results Parser** - Parse your quiz answers from saved HTML
 
+## Project Structure
+
+```
+fan2quizz/
+├── fan2quizz/          # Main Python package
+│   ├── cli.py          # Command-line interface
+│   ├── database.py     # Database interactions
+│   ├── scraper.py      # Web scraping utilities
+│   └── utils.py        # Common utilities
+├── scripts/            # Standalone scripts
+│   ├── daily_report.py           # Fetch daily leaderboard
+│   ├── parse_results.py          # Parse personal results
+│   ├── track_mistakes.py         # Track mistakes
+│   ├── accumulate_mistakes.py    # Accumulate historical mistakes
+│   ├── process_quiz.py           # Complete workflow
+│   ├── weekly_mistakes_report.py # Generate weekly reports
+│   └── ...                       # Other utilities
+├── data/               # Data storage (gitignored)
+│   ├── cache/          # Cached quiz data
+│   ├── db/             # SQLite database
+│   ├── figures/        # Generated charts
+│   ├── html/           # Saved HTML files
+│   └── results/        # JSON results & mistakes
+├── output/             # Generated reports (gitignored)
+│   ├── reports/        # Markdown reports
+│   ├── results/        # CSV exports
+│   └── tests/          # Test outputs
+├── docs/               # Documentation
+└── README.md           # This file
+```
+
 ## Core Scripts
 
 ### 1. Daily Report (`scripts/daily_report.py`)
@@ -126,8 +157,8 @@ uv run scripts/daily_report.py --clipboard-slack
 # Parse saved HTML file (from browser or scraper)
 uv run scripts/parse_results.py
 
-# Reads: defi_du_jour_debug.html
-# Outputs: Console report + defi_du_jour_results.json
+# Reads: data/html/defi_du_jour_debug.html
+# Outputs: Console report + data/results/defi_du_jour_results.json
 ```
 
 ### Mistakes Tracker
@@ -138,25 +169,25 @@ uv run scripts/process_quiz.py
 # OR manually:
 # Track mistakes from current quiz session
 uv run scripts/track_mistakes.py
-# Generates: mistakes_log.md, mistakes_by_category.md, mistakes_log.json
+# Generates: output/reports/mistakes_log.md, output/reports/mistakes_by_category.md, data/results/mistakes_log.json
 
 # Accumulate mistakes over time (run after each quiz)
 uv run scripts/accumulate_mistakes.py
-# Updates: mistakes_history.json
-# Regenerates: mistakes_log.md (with ALL historical mistakes)
+# Updates: data/results/mistakes_history.json
+# Regenerates: output/reports/mistakes_log.md (with ALL historical mistakes)
 ```
 
 **Workflow:**
 1. Complete daily quiz on quizypedia.fr
 2. Save HTML or run scraper
 3. Run `process_quiz.py` (or `parse_results.py` + `accumulate_mistakes.py` manually)
-4. Review `mistakes_log.md` to learn from errors
+4. Review `output/reports/mistakes_log.md` to learn from errors
 
 **Output Files:**
-- `mistakes_log.md` - Chronological list of all mistakes
-- `mistakes_by_category.md` - Mistakes grouped by category (shows weak areas)
-- `mistakes_history.json` - Master database of all mistakes
-- `mistakes_log.json` - Current session mistakes only
+- `output/reports/mistakes_log.md` - Chronological list of all mistakes
+- `output/reports/mistakes_by_category.md` - Mistakes grouped by category (shows weak areas)
+- `data/results/mistakes_history.json` - Master database of all mistakes
+- `data/results/mistakes_log.json` - Current session mistakes only
 
 ### Show Mistakes by Date
 ```bash
@@ -245,12 +276,12 @@ uv pip install rich pyperclip wcwidth
 
 1. **Save from browser**: 
    - Visit quizypedia.fr/defi-du-jour after completing quiz
-   - Right-click → "Save as" → `defi_du_jour_debug.html`
+   - Right-click → "Save as" → `data/html/defi_du_jour_debug.html`
 
 2. **Or use browser DevTools**:
    - Open DevTools (F12)
-   - Copy HTML from Elements tab
-   - Save to `defi_du_jour_debug.html`
+   - Copy entire HTML
+   - Save to `data/html/defi_du_jour_debug.html`
 
 ### Output Format
 
@@ -388,7 +419,7 @@ Output example:
 ```
 
 ### Parsing Your Results
-After running the scraper, the HTML is saved to `defi_du_jour_debug.html`. Use the parser to get a formatted report:
+After running the scraper, the HTML is saved to `data/html/defi_du_jour_debug.html`. Use the parser to get a formatted report:
 
 ```bash
 uv run parse_defi_results.py
@@ -397,7 +428,7 @@ uv run parse_defi_results.py
 This produces:
 - **Detailed results** for each question (your answer vs correct answer)
 - **Score summary** (e.g., 14/20 correct, 227 seconds)
-- **JSON export** to `defi_du_jour_results.json` for further processing
+- **JSON export** to `data/results/defi_du_jour_results.json` for further processing
 
 Example output:
 ```
@@ -436,5 +467,5 @@ This will scrape your results, parse them, display a formatted report, and archi
 ### Troubleshooting
 - If login fails, check credentials in `.env`
 - If questions aren't parsed, the site HTML structure may have changed (update `extract_defi_du_jour` in the script)
-- For debugging, check `defi_du_jour_debug.html` to see what the scraper captured
+- For debugging, check `data/html/defi_du_jour_debug.html` to see what the scraper captured
 
