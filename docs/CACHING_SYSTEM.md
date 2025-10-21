@@ -1,40 +1,17 @@
-# Caching System Documentation
+# Caching System
 
-## Overview
+Smart caching to avoid re-downloading quiz data from quizypedia.fr.
 
-Both `show_mistakes_by_date.py` and `weekly_mistakes_report.py` now include a **smart caching system** to avoid repeatedly downloading the same archive pages from quizypedia.fr.
+## Benefits
 
-## Why Caching?
-
-### Benefits
-
-1. **Server-Friendly** 🤝
-   - Avoids overloading quizypedia.fr with repeated requests
-   - Respects the website's resources
-   - Downloads each day's data only once
-
-2. **Faster Performance** ⚡
-   - First fetch: ~1-2 seconds per day
-   - Cached fetch: Nearly instant (<0.1 seconds)
-   - 7-day report: From ~10-15s down to ~2-3s on subsequent runs
-
-3. **Offline Capable** 📡
-   - Once cached, view mistakes without internet connection
-   - Perfect for reviewing on the go
-
-4. **Cost Effective** 💰
-   - No wasted bandwidth
-   - Reduced server load
-   - More efficient use of resources
+- **Server-friendly:** Downloads each day only once
+- **Fast:** Cached fetches are ~10x faster (instant vs 1-2s)
+- **Offline-capable:** View mistakes without internet
+- **Efficient:** 7-day report: 10-15s → 2-3s on subsequent runs
 
 ## How It Works
 
-### Cache Location
-
-All HTML files are cached in:
-```
-data/cache/quiz_html/YYYY-MM-DD.html
-```
+**Cache location:** `data/cache/quiz_html/YYYY-MM-DD.html`
 
 Example:
 ```
@@ -42,75 +19,110 @@ data/cache/quiz_html/
 ├── 2025-10-14.html
 ├── 2025-10-15.html
 ├── 2025-10-16.html
-├── 2025-10-17.html
-├── 2025-10-18.html
-├── 2025-10-19.html
-└── 2025-10-20.html
+└── ...
 ```
 
-### Cache Flow
+**Cache flow:**
+1. Check if date exists in cache
+2. If found: load instantly
+3. If not: fetch from server → save to cache
+4. Process and display
 
+## Usage
+
+**Automatic caching** (default):
+```bash
+# First run - downloads and caches
+uv run scripts/show_mistakes_by_date.py 2025-10-20
+# Output: 🌐 Fetching... 💾 Cached for future use
+
+# Second run - instant from cache
+uv run scripts/show_mistakes_by_date.py 2025-10-20
+# Output: 📂 Loaded from cache
 ```
-┌─────────────────────┐
-│ Request for date    │
-│    2025-10-20       │
-└──────────┬──────────┘
-           │
-           ▼
-    ┌──────────────┐
-    │ Check Cache  │
-    └──────┬───────┘
-           │
-     ┌─────┴─────┐
-     │           │
-     ▼           ▼
- [Found]     [Not Found]
-     │           │
-     │           ▼
-     │    ┌──────────────┐
-     │    │ Fetch from   │
-     │    │ Server       │
-     │    └──────┬───────┘
-     │           │
-     │           ▼
-     │    ┌──────────────┐
-     │    │ Save to      │
-     │    │ Cache        │
-     │    └──────┬───────┘
-     │           │
-     └─────┬─────┘
-           │
-           ▼
-    ┌──────────────┐
-    │ Process &    │
-    │ Display      │
-    └──────────────┘
+
+**Weekly report:**
+```bash
+uv run scripts/weekly_mistakes_report.py --days 7 --verbose
+# Output shows (cached) for previously fetched days
 ```
+
+**Force fresh fetch:**
+```bash
+uv run scripts/show_mistakes_by_date.py 2025-10-20 --no-cache
+uv run scripts/weekly_mistakes_report.py --days 7 --no-cache
+```
+
+## Performance
+
+| Operation | First Run | Cached Run | Speedup |
+|-----------|-----------|------------|---------|
+| Single day | 1-2s | <0.1s | 10-20x |
+| 7 days | 10-15s | 2-3s | 5x |
+| 14 days | 20-30s | 3-4s | 7x |
+
+## Cache Management
+
+**View cache:**
+```bash
+ls -lh data/cache/quiz_html/
+```
+
+**Clear cache:**
+```bash
+rm -rf data/cache/quiz_html/*.html
+```
+
+**Storage:** ~400-450 KB per day, ~3 MB per week
+
+**When to use `--no-cache`:**
+- Quiz data was updated on the website
+- Cache corruption suspected
+- Testing/debugging
 
 ## Usage Examples
 
 ### Single Date with Cache
 
 ```bash
-# First time - downloads and caches
-$ uv run scripts/show_mistakes_by_date.py 2025-10-20
-📅 Fetching quiz for 2025-10-20...
-🔐 Using session cookie from .env...
-✅ Session cookie loaded!
-🌐 Fetching archive page from server...
-✅ Fetched HTML (444829 bytes)
-💾 Cached for future use
-================================================================================
-...
 
-# Second time - instant from cache
-$ uv run scripts/show_mistakes_by_date.py 2025-10-20
-📅 Fetching quiz for 2025-10-20...
-🔐 Using session cookie from .env...
-✅ Session cookie loaded!
-📂 Loaded from cache (444829 bytes)
-================================================================================
-...
+
+## Implementation Details
+
+**Modified scripts:**
+- `show_mistakes_by_date.py`
+- `weekly_mistakes_report.py`
+
+**Functions added:**
+- `get_cache_path(date)` - Returns cache file path
+- `load_cached_html(date)` - Load from cache if exists
+- `save_cached_html(date, html)` - Save to cache after fetch
+
+**Error handling:**
+- Cache read failure → falls back to server fetch
+- Cache write failure → continues normally (optional)
+- Corrupted cache → use `--no-cache` to refresh
+
+## Features
+
+- Zero configuration required
+- Automatic directory creation  
+- Silent failure handling (doesn't break scripts)
+- Cache status indicators in verbose mode
+- Archive data is immutable (no expiration needed)
+
+## Best Practices
+
+✅ **Do:**
+- Let cache work automatically
+- Use `--verbose` to see cache hits
+- Generate multiple report formats instantly
+
+❌ **Don't:**
+- Use `--no-cache` routinely
+- Manually edit cache files
+- Worry about disk space (~3 MB per week)
+
 ```
 
 ### Weekly Report with Cache

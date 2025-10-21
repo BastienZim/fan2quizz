@@ -1,34 +1,28 @@
 # Fan2Quizz Documentation
 
-Complete guide for tracking, analyzing, and visualizing your daily quiz performance.
+Track, analyze, and visualize your daily Quizypedia quiz performance.
 
-## 📚 Table of Contents
+## 📚 Quick Navigation
 
-- [Quick Start](#quick-start)
-- [Daily Workflow](#daily-workflow)
-- [Data Analysis](#data-analysis)
-- [Visualizations](#visualizations)
-- [Configuration](#configuration)
+**Daily Use:** [Workflow](#daily-workflow) | [Historical Data](#archive-management)  
+**Analysis:** [Mistakes](#mistake-tracking) | [Reports](#reports) | [Visualizations](#visualizations)  
+**Reference:** [Scripts](#script-reference) | [Configuration](#configuration)
 
 ---
 
 ## Quick Start
 
-### Prerequisites
+**Prerequisites:**
+- Python 3.13+ with uv
+- `.env` file with credentials:
+  ```env
+  QUIZY_USER=your_username
+  QUIZY_PASS=your_password
+  QUIZY_COOKIE=sessionid=your_session_cookie
+  ```
 
-1. Python 3.13+ with uv package manager
-2. Complete the daily quiz at [quizypedia.fr/defi-du-jour](https://www.quizypedia.fr/defi-du-jour/)
-3. Create a `.env` file with your credentials:
-   ```
-   QUIZY_USER=your_username
-   QUIZY_PASS=your_password
-   QUIZY_COOKIE=sessionid=your_session_cookie
-   ```
-
-### Installation
-
+**Install:**
 ```bash
-# Install dependencies
 uv sync
 ```
 
@@ -36,68 +30,41 @@ uv sync
 
 ## Daily Workflow
 
-### Automated (Recommended)
-
-Run the complete workflow after completing your quiz:
-
+**Automated (Recommended):**
 ```bash
 uv run scripts/complete_workflow.py
 ```
 
-This will:
-1. ✅ Fetch today's quiz HTML with your answers
-2. ✅ Parse your results (score, mistakes, time)
-3. ✅ Update historical mistake log
-4. ✅ Generate reports
+Fetches quiz, parses results, updates history, generates reports.
 
-### Manual Alternative
+**Manual (if needed):**
+1. Save quiz results page as `defi_du_jour_debug.html`
+2. Run: `uv run scripts/complete_workflow.py --skip-fetch`
 
-If automated fetch doesn't work:
-
-1. Complete the quiz on quizypedia.fr
-2. Save the results page as `defi_du_jour_debug.html` in the project root
-3. Run: `uv run scripts/complete_workflow.py --skip-fetch`
-
-### Individual Steps
-
+**Individual Commands:**
 ```bash
-# Fetch today's quiz
-uv run scripts/fetch_today_quiz.py
-
-# Parse results
-uv run scripts/parse_results.py
-
-# Track mistakes
-uv run scripts/accumulate_mistakes.py
+uv run scripts/fetch_today_quiz.py        # Fetch only
+uv run scripts/parse_results.py           # Parse only
+uv run scripts/accumulate_mistakes.py     # Update history
 ```
 
 ---
 
-## Data Analysis
+## Archive Management
 
-### Archive Management
-
-Check and download historical quiz data:
-
+**Check available data:**
 ```bash
-# Check what data you have (last 30 days)
-uv run scripts/manage_archive.py
-
-# Check specific date range
-uv run scripts/manage_archive.py --from 2025-10-01 --to 2025-10-20
-
-# Check last 14 days
-uv run scripts/manage_archive.py --days 14
-
-# Download missing data (prompts for confirmation)
-uv run scripts/manage_archive.py --days 14 --download
-
-# Custom range download
-uv run scripts/manage_archive.py --from 2025-10-01 --download
+uv run scripts/manage_archive.py                        # Last 30 days
+uv run scripts/manage_archive.py --days 14              # Last 14 days
+uv run scripts/manage_archive.py --from 2025-10-01     # Custom range
 ```
 
-**Shows:**
-- Available dates with data
+**Download missing data:**
+```bash
+uv run scripts/manage_archive.py --days 14 --download
+```
+
+Shows available dates with scores
 - Missing dates in range
 - Option to download missing data
 - Progress during download
@@ -110,127 +77,187 @@ Retroactively check quiz data from past dates:
 # Check what dates already have mistakes logged
 uv run scripts/fetch_historical_mistakes.py --check
 
-# Try to fetch mistakes for a specific date
+
+
+---
+
+## Mistake Tracking
+
+**View past mistakes:**
+```bash
+uv run scripts/show_mistakes_by_date.py 2025-10-20     # Specific date
+uv run scripts/show_mistakes_by_date.py --all          # All questions
+```
+
+**Generate reports:**
+```bash
+uv run scripts/weekly_mistakes_report.py              # Last 7 days
+uv run scripts/weekly_mistakes_report.py --days 14    # Last 14 days
+uv run scripts/weekly_mistakes_report.py --start 2025-10-01 --end 2025-10-20
+```
+
+**Fetch historical data:**
+```bash
 uv run scripts/fetch_historical_mistakes.py --date 2025-10-15
-
-# Fetch multiple dates
-uv run scripts/fetch_historical_mistakes.py --date 2025-10-15 --date 2025-10-14
-
-# Fetch date range
 uv run scripts/fetch_historical_mistakes.py --start 2025-10-06 --end 2025-10-15
-
-# Skip dates already logged
-uv run scripts/fetch_historical_mistakes.py --start 2025-10-06 --end 2025-10-19 --skip-existing
 ```
 
-**⚠️ Important Limitation:**
-Archives only contain questions and correct answers, NOT your personal wrong answers. 
-The script will show your score but cannot determine which specific questions you missed.
+⚠️ **Note:** Archives contain questions and correct answers only, not your personal wrong choices. For complete tracking, use daily workflow on quiz day.
 
-For complete tracking, use the daily workflow on the quiz day.
+📖 See: [Historical Mistakes Guide](HISTORICAL_MISTAKES.md) | [Caching System](CACHING_SYSTEM.md)
 
-📖 [Full Historical Mistakes Guide](HISTORICAL_MISTAKES.md)
+---
 
-### Personal Performance
+## Analysis & Reports
 
-Get insights into your quiz history:
-
+**Performance insights:**
 ```bash
-# Quick overview
-uv run scripts/inspect_history.py
-
-# Detailed stats with trends
-uv run scripts/inspect_history.py --detailed
-
-# Analyze mistakes by category
-uv run scripts/inspect_history.py --mistakes
-
-# Compare with friends
-uv run scripts/inspect_history.py --compare
-
-# Specific date analysis
-uv run scripts/inspect_history.py --date 2025-10-17
-
-# Everything at once
-uv run scripts/inspect_history.py --all
+uv run scripts/inspect_history.py                     # Overview
+uv run scripts/inspect_history.py --detailed          # Stats + trends
+uv run scripts/inspect_history.py --mistakes          # By category
+uv run scripts/inspect_history.py --all               # Everything
 ```
 
-**Provides:**
-- Total quizzes completed
-- Average score and trends
-- Mistake analysis by category
-- Friend rankings and comparisons
-- Best/worst performance dates
-
-### Player Evolution
-
-Track score evolution over time:
-
+**Player evolution:**
 ```bash
-# Table view with trends
-uv run scripts/player_evolution.py
-
-# Export to CSV
-uv run scripts/player_evolution.py --export
-
-# Filter by players
-uv run scripts/player_evolution.py --players BastienZim louish jutabouret
+uv run scripts/player_evolution.py                    # Table view
+uv run scripts/player_evolution.py --export           # Export CSV
 ```
 
-**Shows:**
-- Daily scores for all players
-- Day-to-day changes with trend indicators (↗/↘/→)
-- Visual bar chart in terminal
-- Comparison summary
+**Study guides:**
+```bash
+uv run scripts/generate_failed_questions.py           # All mistakes
+uv run scripts/generate_failed_questions.py --order category
+uv run scripts/generate_failed_questions.py --domain Arts
+uv run scripts/generate_failed_questions.py --filter "2025-10-17"
+```
+
+📖 See: [Study Guide Generator](STUDY_GUIDE_GENERATOR.md)
 
 ---
 
 ## Visualizations
 
-### Generate Plots
-
-All plots are saved to `data/figures/` with professional seaborn styling.
-
+**Generate plots:**
 ```bash
-# Single plot with all players
-uv run scripts/plot_evolution.py
-
-# Individual subplots per player
-uv run scripts/plot_evolution.py --comparison
-
-# Both visualizations
-uv run scripts/plot_evolution.py --both
-
-# Filter specific players
-uv run scripts/plot_evolution.py --players BastienZim louish jutabouret
-
-# Display interactively
-uv run scripts/plot_evolution.py --show
+uv run scripts/plot_evolution.py                      # All players
+uv run scripts/plot_evolution.py --comparison         # Individual subplots
+uv run scripts/plot_evolution.py --both               # Both visualizations
+uv run scripts/plot_evolution.py --show               # Interactive display
 ```
 
-### Available Plots
+**Outputs** (saved to `data/figures/`):
+- `score_evolution.png` - All players on one graph with trends
+- `score_comparison.png` - Individual subplots (3x4 grid) with stats
 
-1. **score_evolution.png** - All players on one graph
-   - Date vs Score (0-20)
-   - Distinct colors, line styles, and markers per player
-   - Reference lines at 50% and 75%
-   - Score range shading (red/yellow/green)
+**Features:**
+- Professional seaborn styling with 10 distinct colors
+- Multiple line styles and markers for clarity
+- Reference lines (50%, 75%) and score range shading
+- Average lines and trend indicators
 
-2. **score_comparison.png** - Individual subplots (3x4 grid)
-   - One subplot per player
-   - Filled area under curve
-   - Average line and trend indicator
-   - Score value labels
+---
 
-3. **Custom plots** - Filter specific players
-   - Compare top performers
-   - Track specific friend groups
+## Reports
 
-### Visual Features
+**Daily reports:**
+```bash
+uv run scripts/daily_report.py
+```
 
-- **Color Palette**: HUSL for maximum distinction (10 unique colors)
-- **Line Styles**: 4 patterns (solid, dashed, dash-dot, dotted)
-- **Markers**: 10 shapes (○, □, △, ◇, ▽, ⬠, ★, ⬡, ✕, +)
+**Weekly mistakes report:**
+```bash
+uv run scripts/weekly_mistakes_report.py --verbose --update-history
+```
+
+**Generated files** (in `output/reports/`):
+- `WEEKLY_MISTAKES_REPORT.md` - Comprehensive weekly analysis
+- `mistakes_by_category.md` - Grouped by topic
+- `mistakes_log.md` - Chronological list
+- `MISTAKES_SUMMARY.md` - Statistics summary
+
+---
+
+## Script Reference
+
+**Daily:**
+- `complete_workflow.py` - Full automated workflow
+- `fetch_today_quiz.py` - Fetch today's quiz
+- `parse_results.py` - Parse HTML results
+- `accumulate_mistakes.py` - Update history
+
+**Historical:**
+- `show_mistakes_by_date.py` - View single date mistakes
+- `weekly_mistakes_report.py` - Multi-day reports
+- `fetch_historical_mistakes.py` - Fetch past quizzes
+- `manage_archive.py` - Check/download historical data
+
+**Analysis:**
+- `inspect_history.py` - Performance insights
+- `player_evolution.py` - Score tracking table
+- `plot_evolution.py` - Matplotlib visualizations
+- `generate_failed_questions.py` - Study guides
+
+**Other:**
+- `daily_report.py` - Generate daily report
+- `track_mistakes.py` - Track mistakes manually
+
+---
+
+## Configuration
+
+**Environment variables** (`.env` file):
+```env
+QUIZY_USER=your_username
+QUIZY_PASS=your_password
+QUIZY_COOKIE=sessionid=your_session_cookie
+```
+
+**Data locations:**
+- `data/cache/archive/` - Historical quiz data (JSON)
+- `data/cache/quiz_html/` - Cached HTML pages
+- `data/results/` - Results and mistake logs
+- `data/figures/` - Generated plots
+- `output/reports/` - Generated reports
+
+**Caching:**
+- HTML files cached automatically to avoid re-downloading
+- Use `--no-cache` flag to force fresh fetch
+- Cache dramatically speeds up subsequent runs
+
+📖 See: [Caching System](CACHING_SYSTEM.md) | [Complete Workflow](COMPLETE_WORKFLOW.md)
+
+---
+
+## Tips
+
+💡 **Best practices:**
+- Run `complete_workflow.py` daily for accurate tracking
+- Use `--verbose` flags to see progress
+- Check `manage_archive.py` regularly for data gaps
+- Generate weekly reports every Monday
+
+💡 **Performance:**
+- Cached data = 5-7x faster runs
+- Use specific date ranges to limit downloads
+- `--show` flag for interactive plot exploration
+
+💡 **Study efficiently:**
+- Order by category to identify weak areas
+- Filter by domain for focused review
+- Use `--show-choices` for quiz-style practice
+
+---
+
+## Additional Documentation
+
+- [Complete Workflow Guide](COMPLETE_WORKFLOW.md)
+- [Caching System Details](CACHING_SYSTEM.md)
+- [Historical Mistakes Guide](HISTORICAL_MISTAKES.md)
+- [Study Guide Generator](STUDY_GUIDE_GENERATOR.md)
+- [Weekly Mistakes Report](WEEKLY_MISTAKES_REPORT.md)
+- [Show Mistakes by Date](SHOW_MISTAKES_BY_DATE.md)
+
 - **Accessibility**: Three-level distinction (color + line + marker)
 - **Professional styling**: Seaborn whitegrid theme
 
@@ -378,18 +405,28 @@ uv run scripts/generate_failed_questions.py --domain Histoire --order category -
 
 ## Troubleshooting
 
-### Quiz fetch fails
-- Check `.env` credentials are correct
-- Verify session cookie is valid (may expire)
-- Use manual HTML save method as fallback
+**Quiz fetch fails:**
+- Verify `.env` credentials
+- Check session cookie validity (may expire)
+- Try manual workflow with saved HTML
 
-### No data in plots
-- Ensure archive files exist in `data/cache/archive/`
-- Run workflow at least once to generate data
-- Check date range in archive folder
+**Missing data:**
+- Run `manage_archive.py` to check gaps
+- Use `--download` flag to fetch missing days
 
-### Wrong date in results
-- Make sure you saved the correct results page
+**Plot errors:**
+- Install matplotlib/seaborn: `uv pip install matplotlib seaborn`
+- Ensure archive data exists
+
+**Cache issues:**
+- Use `--no-cache` to force fresh fetch
+- Clear cache: `rm -rf data/cache/quiz_html/`
+
+---
+
+---
+
+For detailed guides, see the [docs/](.) directory.
 - Re-fetch with `uv run scripts/fetch_today_quiz.py`
 
 ---

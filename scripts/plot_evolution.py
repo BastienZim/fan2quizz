@@ -1,15 +1,21 @@
 #!/usr/bin/env python3
-"""Generate matplotlib plots showing score evolution over time.
+"""
+Plot quiz score evolution and player comparisons using matplotlib.
 
-This script creates visualizations of player performance using matplotlib,
-with dates on x-axis and scores on y-axis, one curve per player.
+Features:
+- Visualize score trends for all or selected players
+- Individual player comparison subplots
+- Customizable style (default, dark, ggplot, seaborn)
+- Save plots to file or display interactively
 
-Usage:
-    uv run scripts/plot_evolution.py                     # All players
+Usage examples:
+    uv run scripts/plot_evolution.py                # All tracked players
     uv run scripts/plot_evolution.py --players BastienZim louish jutabouret
-    uv run scripts/plot_evolution.py --output evolution.png
-    uv run scripts/plot_evolution.py --style dark        # Dark theme
-    uv run scripts/plot_evolution.py --show              # Display interactively
+    uv run scripts/plot_evolution.py --output my_plot.png
+    uv run scripts/plot_evolution.py --style dark   # Dark theme
+    uv run scripts/plot_evolution.py --show         # Show interactively
+    uv run scripts/plot_evolution.py --comparison   # Individual player subplots
+    uv run scripts/plot_evolution.py --both         # All visualizations
 """
 import sys
 import json

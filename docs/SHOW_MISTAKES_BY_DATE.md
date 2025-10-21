@@ -1,85 +1,69 @@
 # Show Mistakes by Date
 
-This script allows you to display your personal mistakes from a specific day's quiz on Quizypedia.
+Display your personal mistakes from a specific day's quiz.
 
 ## Overview
 
-The script fetches the archive page for a specific date from `https://www.quizypedia.fr/defi-du-jour/archives/YYYY/MM/DD/`, extracts the quiz data (including questions, your answers, and correct answers), and displays only the questions you got wrong.
+Fetches archive page for a specific date, extracts quiz data with your answers, and displays only questions you got wrong.
 
 ## Features
 
-- 🔍 Fetch quiz data from any archive date
-- ❌ Display only mistakes (or all questions with `--all` flag)
-- 🔐 Automatic authentication using `.env` file
-- 💾 **Smart caching** - downloads each day only once, saves to cache
-- 📊 Shows detailed information for each mistake:
-  - Question theme/category
-  - Question text with hints
-  - All answer choices
-  - Your answer (marked as wrong)
-  - The correct answer
-- 💾 Optional: Save the HTML response to a file
+- Fetch quiz data from any archive date
+- Display only mistakes (or all questions with `--all`)
+- Automatic authentication via `.env`
+- Smart caching (downloads once, saves locally)
+- Detailed information: question, hints, all choices, your answer, correct answer
+- Optional HTML save
 
 ## Prerequisites
 
-Make sure you have a `.env` file in the project root with your Quizypedia credentials:
-
+`.env` file with credentials:
 ```env
 QUIZY_USER=your.email@example.com
 QUIZY_PASS=yourpassword
-# OR use a session cookie (faster and more reliable)
-QUIZY_COOKIE=wordpress_logged_in_xxxxx=value; other_cookie=value
+# OR session cookie (faster)
+QUIZY_COOKIE=wordpress_logged_in_xxxxx=value
 ```
 
 ## Usage
 
-### Basic Usage
-
+**Basic:**
 ```bash
-# Show mistakes from October 20, 2025
+# Specific date
 uv run scripts/show_mistakes_by_date.py 2025-10-20
 
-# Alternative date formats
+# Alternative formats
 uv run scripts/show_mistakes_by_date.py 2025/10/20
 uv run scripts/show_mistakes_by_date.py 20/10/2025
 
-# Show yesterday's mistakes (default if no date provided)
+# Yesterday (default)
 uv run scripts/show_mistakes_by_date.py
 ```
 
-### Advanced Options
-
+**Options:**
 ```bash
-# Show all questions (not just mistakes)
+# Show all questions
 uv run scripts/show_mistakes_by_date.py 2025-10-20 --all
 
-# Skip authentication (will show limited info)
+# Skip authentication
 uv run scripts/show_mistakes_by_date.py 2025-10-20 --no-auth
 
-# Save HTML for later analysis
+# Save HTML
 uv run scripts/show_mistakes_by_date.py 2025-10-20 --save archive.html
 
-# Force fresh fetch (ignore cache)
+# Force fresh fetch
 uv run scripts/show_mistakes_by_date.py 2025-10-20 --no-cache
 
-# Combine options
-uv run scripts/show_mistakes_by_date.py 2025-10-20 --all --save archive.html
-```
-
-### Help
-
-```bash
+# Help
 uv run scripts/show_mistakes_by_date.py --help
 ```
 
-## Output Example
+## Output Format
 
 ```
 📅 Fetching quiz for 2025-10-20...
-🔐 Using session cookie from .env...
-✅ Session cookie loaded!
-🌐 Fetching archive page...
-✅ Fetched HTML (444829 bytes)
+📂 Loaded from cache (444829 bytes)
+
 ================================================================================
 DÉFI DU JOUR - Your Mistakes
 ================================================================================
@@ -93,84 +77,27 @@ MISTAKES ONLY (10 mistakes):
 ================================================================================
 
 ────────────────────────────────────────────────────────────────────────────────
-❌ Question 1: Pâtisseries et desserts français (1)
+❌ Question 1: Category Name
 ────────────────────────────────────────────────────────────────────────────────
-❓ Quel département a pour spécialité la pâtisserie suivante ?
-   💡 Spécialité: Nonnette
+❓ Question text here
+   💡 Hint: hint text
 
-   Choices:
-   1. Rhône ✗ YOUR ANSWER (WRONG)
-   2. Finistère
-   3. Meuse
-   4. Côte-d'Or ✓ CORRECT
+   A) Choice 1
+   B) Choice 2
+   C) Choice 3 ❌ (Your answer)
+   D) Choice 4 ✓ (Correct answer)
 
-   💭 You answered: Rhône
-   ✓ Correct answer: Côte-d'Or
-...
+💡 Learning: Additional information
 ```
 
-## How It Works
+## Caching
 
-1. **Check Cache**: First checks if HTML is already cached in `data/cache/quiz_html/`
-2. **Authentication**: Uses credentials from `.env` to authenticate with Quizypedia (if needed)
-3. **Fetch Archive**: Fetches the archive page HTML from the specific date URL (only if not cached)
-4. **Cache Save**: Saves HTML to cache for future use (avoiding repeated downloads)
-5. **Parse Data**: Extracts the `DC_DATA` and `DC_USER` JavaScript variables embedded in the HTML
-6. **Filter & Display**: Filters questions to show only mistakes (unless `--all` is used)
+- First run downloads from server (~1-2s)
+- Subsequent runs load from cache (<0.1s)
+- Cache saved to `data/cache/quiz_html/`
+- Use `--no-cache` to force fresh fetch
 
-### Cache Benefits
+## See Also
 
-- **Faster**: Instant loading from cache vs ~1-2 seconds from server
-- **Server-friendly**: Doesn't overload quizypedia.fr with repeated requests
-- **Offline capable**: Once cached, can view mistakes without internet
-- **Cache location**: `data/cache/quiz_html/YYYY-MM-DD.html`
-
-## URL Format
-
-The archive pages follow this format:
-```
-https://www.quizypedia.fr/defi-du-jour/archives/YYYY/MM/DD/
-```
-
-Example:
-```
-https://www.quizypedia.fr/defi-du-jour/archives/2025/10/20/
-```
-
-## Notes
-
-- You must have completed the quiz on the website for that date for your answers to be recorded
-- The script automatically clicks "Afficher les questions et les réponses" by fetching the archive page with authentication
-- Without authentication, the script may show limited or no results
-- The script uses the same authentication mechanism as other scripts in the project
-
-## Troubleshooting
-
-### Error: "DC_DATA not found in HTML"
-
-This usually means:
-- You're not authenticated (check your `.env` file)
-- The date is incorrect or the quiz doesn't exist for that date
-- The page structure has changed
-
-**Solution**: Try visiting the URL in your browser while logged in:
-```
-https://www.quizypedia.fr/defi-du-jour/archives/2025/10/20/
-```
-
-### Error: "Login failed"
-
-**Solution**: 
-- Check your credentials in `.env`
-- Try using `QUIZY_COOKIE` instead of email/password for more reliable authentication
-
-### No mistakes shown but you know you made mistakes
-
-**Solution**: Make sure you completed the quiz before the data was archived, or check if the date is correct.
-
-## Related Scripts
-
-- `fetch_today_quiz.py` - Fetch today's live quiz HTML
-- `parse_results.py` - Parse quiz results from saved HTML
-- `daily_report.py` - Generate daily/weekly reports
-- `track_mistakes.py` - Track mistakes over time
+- [Weekly Mistakes Report](WEEKLY_MISTAKES_REPORT.md) - Multi-day reports
+- [Caching System](CACHING_SYSTEM.md) - How caching works

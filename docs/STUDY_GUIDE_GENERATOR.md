@@ -1,75 +1,56 @@
-# 📚 Failed Questions Generator - Quick Guide
+# Study Guide Generator
 
 Generate customized study guides from your quiz mistakes with flexible ordering and filtering.
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
-# Default: all questions ordered by date (newest first), correct answers only
+# Default: by date, correct answers only
 uv run scripts/generate_failed_questions.py
 
 # Show help
 uv run scripts/generate_failed_questions.py --help
 ```
 
-**Note:** By default, only the correct answer is shown (not all multiple choices). This keeps the output clean and focused for studying. Use `--show-choices` to see all options.
+**Note:** Default shows only correct answer (not all choices) for clean, focused studying. Use `--show-choices` to see all options.
 
-## 📋 Ordering Options
+## Ordering Options
 
-### By Date (Default)
+**By date (default):**
 ```bash
 uv run scripts/generate_failed_questions.py --order date
 ```
-Groups questions by date, newest first. Perfect for reviewing recent mistakes.
+Groups by date, newest first. Review recent mistakes.
 
-### By Category
+**By category:**
 ```bash
 uv run scripts/generate_failed_questions.py --order category
 ```
-Groups questions by category (alphabetically). Great for identifying patterns in specific topics.
+Groups by category (alphabetically). Identify patterns in topics.
 
-### Sequential
+**Sequential:**
 ```bash
 uv run scripts/generate_failed_questions.py --order question
 ```
-Lists all questions in order by date and question number.
+Lists all questions in order by date and number.
 
-## 🔍 Filtering Options
+## Filtering Options
 
-### By Domain
-Filter questions by broad knowledge domain:
-
+**By domain:**
 ```bash
-# Arts (literature, painting, opera, theater)
 uv run scripts/generate_failed_questions.py --domain Arts
-
-# History (events, people, dates)
 uv run scripts/generate_failed_questions.py --domain Histoire
-
-# Geography (cities, regions, places)
 uv run scripts/generate_failed_questions.py --domain Géographie
-
-# Music (bands, singers, songs)
 uv run scripts/generate_failed_questions.py --domain Musique
-
-# Sports (athletes, records, teams)
 uv run scripts/generate_failed_questions.py --domain Sports
-
-# Sciences (medicine, biology, physics)
 uv run scripts/generate_failed_questions.py --domain Sciences
-
-# Culture (food, traditions, pop culture)
 uv run scripts/generate_failed_questions.py --domain Culture
-
-# Mythology (legends, gods, heroes)
 uv run scripts/generate_failed_questions.py --domain Mythologie
 ```
 
-### By Text Filter
-Filter by any text in date or category:
-
+**By text:**
 ```bash
-# Filter by specific date
+# Filter by date
 uv run scripts/generate_failed_questions.py --filter "2025-10-17"
 
 # Filter by category keyword
@@ -78,193 +59,109 @@ uv run scripts/generate_failed_questions.py --filter "football"
 uv run scripts/generate_failed_questions.py --filter "Shakespeare"
 ```
 
-## 🎯 Display Options
+## Display Options
 
-### Clean Study Format (Default)
+**Clean study format (default):**
 ```bash
 uv run scripts/generate_failed_questions.py
 ```
-Shows only: question, hint, correct answer, and learning notes. Best for studying.
+Shows: question, hint, correct answer, learning notes.
 
-### Show Multiple Choices
+**Show multiple choices:**
 ```bash
 uv run scripts/generate_failed_questions.py --show-choices
 ```
-Includes all answer options with ✓ marking the correct answer. Useful for quiz-style review.
+Includes all options with ✓ marking correct answer. Quiz-style review.
 
-### Show Your Mistakes
+**Show your mistakes:**
 ```bash
 uv run scripts/generate_failed_questions.py --show-mistakes
 ```
-Includes your wrong answers for self-assessment. Works with or without --show-choices.
+Includes your wrong answers for self-assessment.
 
-### Complete View
+**Combined:**
 ```bash
-uv run scripts/generate_failed_questions.py --show-mistakes --show-choices
+uv run scripts/generate_failed_questions.py --show-choices --show-mistakes
 ```
-Shows everything: your wrong answer (✗), correct answer (✓), all choices, and learning notes.
+Complete view with all info.
 
-### Include Statistics
+## Output Options
+
+**Display to terminal (default):**
 ```bash
-uv run scripts/generate_failed_questions.py --stats
-```
-Adds a statistics section showing breakdown by date and category.
-
-## 💾 Output Options
-
-### Default Output
-By default, generates `FAILED_QUESTIONS_EXHAUSTIVE.md`
-
-### Custom Output File
-```bash
-uv run scripts/generate_failed_questions.py --output my_study_guide.md
+uv run scripts/generate_failed_questions.py --order category
 ```
 
-## 🎨 Common Usage Patterns
-
-### Daily Review (after quiz)
+**Save to file:**
 ```bash
-# Review today's mistakes
-uv run scripts/generate_failed_questions.py --filter "$(date +%Y-%m-%d)"
+uv run scripts/generate_failed_questions.py --order category --output study_guide.md
 ```
 
-### Weekly Study Session
+**With statistics:**
 ```bash
-# All mistakes, by category, with stats
-uv run scripts/generate_failed_questions.py --order category --stats
+uv run scripts/generate_failed_questions.py --stats --order category
 ```
 
-### Domain-Focused Study
+## Example Workflows
+
+**Weekly study session:**
 ```bash
-# Focus on weak areas
-uv run scripts/generate_failed_questions.py --domain Arts --order category
-uv run scripts/generate_failed_questions.py --domain Histoire --show-mistakes
+# Generate study guide by category
+uv run scripts/generate_failed_questions.py --order category --show-choices --output weekly_study.md
 ```
 
-### Create Flashcards
+**Focus on weak area:**
 ```bash
-# Simple format without choices (clean for memorization)
-uv run scripts/generate_failed_questions.py --order category --output flashcards.md
+# Arts domain only
+uv run scripts/generate_failed_questions.py --domain Arts --order category --show-choices
 ```
 
-### Quiz-Style Practice
+**Review specific week:**
 ```bash
-# Include all choices for self-testing
-uv run scripts/generate_failed_questions.py --show-choices --output quiz_practice.md
+# October 14-20
+uv run scripts/generate_failed_questions.py --filter "2025-10-1" --order date
 ```
 
-### Self-Assessment
+**Quiz practice:**
 ```bash
-# Include your mistakes to track patterns
-uv run scripts/generate_failed_questions.py --show-mistakes --show-choices --stats --output assessment.md
+# Show all choices for self-testing
+uv run scripts/generate_failed_questions.py --show-choices --order question
 ```
 
-## 📊 Example Outputs
+## Tips
 
-### Example 1: Arts Domain Only
-```bash
-uv run scripts/generate_failed_questions.py --domain Arts --output arts_study.md
+- Order by category to identify weak areas
+- Use `--show-choices` for quiz-style practice
+- Filter by domain for focused review
+- Save to file for offline study
+- Use `--stats` to track improvement
+
+## Output Format
+
+**Default (clean):**
 ```
-**Result:** 5 questions from Arts domain (literature, painting, opera, theater)
-
-### Example 2: History by Category
-```bash
-uv run scripts/generate_failed_questions.py --domain Histoire --order category --stats
-```
-**Result:** Historical questions grouped by category with statistics
-
-### Example 3: Specific Date Review
-```bash
-uv run scripts/generate_failed_questions.py --filter "2025-10-20" --show-mistakes
-```
-**Result:** Only questions from October 20, showing your mistakes
-
-## 🎓 Study Workflow
-
-### Step 1: Generate Study Guide
-```bash
-uv run scripts/generate_failed_questions.py --order category --output study.md
+Question: [text]
+Hint: [hint]
+Correct Answer: [answer]
+Learning: [notes]
 ```
 
-### Step 2: Review by Domain
-```bash
-# Study one domain at a time
-uv run scripts/generate_failed_questions.py --domain Arts --output arts.md
-uv run scripts/generate_failed_questions.py --domain Histoire --output histoire.md
-uv run scripts/generate_failed_questions.py --domain Sciences --output sciences.md
+**With choices:**
+```
+Question: [text]
+Hint: [hint]
+A) Choice 1
+B) Choice 2
+C) Choice 3 ✓
+D) Choice 4
+Learning: [notes]
 ```
 
-### Step 3: Self-Test
-```bash
-# After studying, review with mistakes shown
-uv run scripts/generate_failed_questions.py --show-mistakes --output self_test.md
+**With mistakes:**
 ```
-
-### Step 4: Track Progress
-```bash
-# Weekly stats
-uv run scripts/generate_failed_questions.py --stats --output weekly_progress.md
+Question: [text]
+Hint: [hint]
+Your Answer: Choice 2 ❌
+Correct Answer: Choice 3 ✓
+Learning: [notes]
 ```
-
-## 📝 Output Format
-
-Each question includes:
-- **Date** (when you made the mistake)
-- **Category** (quiz category)
-- **Question** (full question text)
-- **Hint** (clue provided during quiz)
-- **Correct Answer** (always shown)
-- **Your Answer** (optional, with `--show-mistakes`, marked with ✗)
-- **All Choices** (optional, with `--show-choices`, correct marked with ✓)
-- **Learning Note** (contextual explanation)
-
-**Default format** shows: Date, Category, Question, Hint, Correct Answer, Learning Note  
-**With --show-choices:** Adds all multiple choice options  
-**With --show-mistakes:** Adds your incorrect answer  
-**With both flags:** Complete view of everything
-
-## 🔧 Advanced Combinations
-
-### Combine Multiple Options
-```bash
-# Arts domain, by category, with stats, show mistakes
-uv run scripts/generate_failed_questions.py \
-  --domain Arts \
-  --order category \
-  --stats \
-  --show-mistakes \
-  --output arts_complete.md
-```
-
-### Create Multiple Study Guides
-```bash
-# Generate one guide per domain
-for domain in Arts Histoire Géographie Musique Sports Sciences; do
-  uv run scripts/generate_failed_questions.py \
-    --domain $domain \
-    --order category \
-    --output "${domain}_study.md"
-done
-```
-
-## 💡 Tips
-
-1. **Start with category order** to identify patterns
-2. **Use domain filters** to focus study sessions
-3. **Hide mistakes** when first studying (test yourself)
-4. **Show mistakes** when reviewing (understand errors)
-5. **Use stats** to track improvement over time
-6. **Filter by date** to review recent mistakes
-7. **Create separate files** for different study topics
-
-## 📂 Generated Files
-
-All generated files are Markdown format, can be viewed in:
-- VS Code (native Markdown preview)
-- Any Markdown viewer
-- Converted to PDF for printing
-- Imported to Notion, Obsidian, etc.
-
----
-
-*Last Updated: October 20, 2025*
