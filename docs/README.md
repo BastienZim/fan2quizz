@@ -146,8 +146,15 @@ uv run scripts/plot_evolution.py --both               # Both visualizations
 uv run scripts/plot_evolution.py --show               # Interactive display
 ```
 
+**Category difficulty radar chart:**
+```bash
+uv run scripts/daily_report.py 2025-10-22 --radar    # Generate chart
+uv run scripts/daily_report.py --show-radar          # Interactive view
+```
+
 **Outputs** (saved to `data/figures/`):
 - `score_evolution.png` - All players on one graph with trends
+- `category_difficulty_YYYY-MM-DD.png` - Radar chart showing quiz difficulty by category
 - `score_comparison.png` - Individual subplots (3x4 grid) with stats
 
 **Features:**

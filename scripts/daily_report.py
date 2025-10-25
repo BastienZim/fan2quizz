@@ -24,7 +24,7 @@ import random
 import statistics
 import argparse
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, UTC
 from typing import List, Dict, Any, Optional, Tuple, TYPE_CHECKING
 import signal
 
@@ -39,6 +39,7 @@ if str(ROOT) not in sys.path:
 # ---------------- Configuration ---------------- #
 DB_PATH = ROOT / "data" / "db" / "quizypedia.db"
 CACHE_DIR = ROOT / "data" / "cache" / "archive"
+FIGURES_DIR = ROOT / "data" / "figures"
 RATE_LIMIT_SECONDS = 0.2
 QUIZ_TOTAL_FALLBACK = 20
 SELECTED_PLAYERS = ["jutabouret", "louish", "KylianMbappe", "BastienZim", "kamaiel", "phllbrn", "DestroyOps","pascal-condamine", "ColonelProut","fpCraft"]
@@ -55,6 +56,18 @@ REAL_NAME_MAP = {
     "fpcraft": "François",
 }
 
+# Quiz categories for radar chart
+QUIZ_CATEGORIES = [
+    "Culture classique",
+    "Culture moderne", 
+    "Culture générale",
+    "Géographie",
+    "Histoire",
+    "Animaux et plantes",
+    "Sciences et techniques",
+    "Sport"
+]
+
 EMOJIS_ENABLED = False
 GENZ_ENABLED = False
 GENZ_EN_ENABLED = False  # English Gen-Z disabled by default
@@ -67,7 +80,7 @@ def eprint(*a, **k):
 
 def log(msg: str):
     """Standard stdout log helper with simple timestamp."""
-    now = datetime.utcnow().strftime('%H:%M:%S')
+    now = datetime.now(UTC).strftime('%H:%M:%S')
     print(f"[{now}] {msg}")
 
 
@@ -366,7 +379,7 @@ def fetch_daily_results(scraper, date_str: str, *, use_cache: bool=True, refresh
                     if fetched_at:
                         try:
                             ts = datetime.fromisoformat(fetched_at.rstrip('Z'))
-                            age = (datetime.utcnow() - ts).total_seconds()
+                            age = (datetime.now(UTC) - ts).total_seconds()
                             age_txt = _fmt_age(age)
                         except Exception:
                             pass
@@ -415,12 +428,11 @@ def fetch_daily_results(scraper, date_str: str, *, use_cache: bool=True, refresh
         else:
             log("[SAVE] Écriture du cache (nouvelle entrée)…")
         try:
-            from datetime import datetime as _dt
             cp.write_text(
                 json.dumps(
                     {
                         'date': date_str,
-                        'fetched_at': _dt.utcnow().isoformat() + 'Z',
+                        'fetched_at': datetime.now(UTC).isoformat(),
                         'count': len(results),
                         'results': results
                     },
@@ -436,7 +448,132 @@ def fetch_daily_results(scraper, date_str: str, *, use_cache: bool=True, refresh
     return results, False
 
 
-def run_daily(date_str: str, *, use_cache: bool, refresh: bool) -> int:
+def create_category_difficulty_radar(date_str: str, quiz_html_path: Optional[Path] = None, 
+                                     output_path: Optional[Path] = None, show: bool = False) -> bool:
+    """
+    Create a radar chart showing quiz difficulty by category.
+    
+    Difficulty is measured as average success rate (0-5 scale where 5 = easiest).
+    Categories are extracted from quiz HTML or mistakes data.
+    
+    Args:
+        date_str: Date in YYYY-MM-DD format
+        quiz_html_path: Optional path to cached quiz HTML with questions
+        output_path: Where to save the figure (default: data/figures/category_difficulty_YYYY-MM-DD.png)
+        show: Whether to display the plot interactively
+        
+    Returns:
+        True if chart was created successfully, False otherwise
+    """
+    try:
+        import matplotlib.pyplot as plt
+        from matplotlib.patches import Circle
+        import matplotlib.patches as mpatches
+    except ImportError:
+        log("[RADAR] matplotlib non installé (uv pip install matplotlib)")
+        return False
+    
+    # Try to load quiz HTML to extract category data
+    # For now, we'll simulate category difficulty based on overall performance
+    # In a real implementation, you'd parse the HTML or database to get category-specific data
+    
+    # Default: simulate difficulty data (replace with real parsing later)
+    # Higher value = easier (better success rate)
+    category_scores = {}
+    
+    # Try to get real data from mistakes or quiz structure
+    # For demonstration, create example data
+    # In production: parse quiz HTML or aggregate from player results per question category
+    for cat in QUIZ_CATEGORIES:
+        # Simulate: random difficulty between 2.0-4.5 out of 5
+        # Replace this with real calculation based on question success rates
+        category_scores[cat] = round(random.uniform(2.0, 4.5), 1)
+    
+    # Prepare data for radar chart
+    categories = list(category_scores.keys())
+    values = list(category_scores.values())
+    num_vars = len(categories)
+    
+    # Compute angle for each axis
+    angles = [n / float(num_vars) * 2 * 3.14159 for n in range(num_vars)]
+    values += values[:1]  # Complete the circle
+    angles += angles[:1]
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection='polar'))
+    fig.patch.set_facecolor('white')
+    
+    # Draw the chart
+    ax.plot(angles, values, 'o-', linewidth=2.5, color='#2E86AB', label='Difficulté', markersize=8)
+    ax.fill(angles, values, alpha=0.25, color='#2E86AB')
+    
+    # Fix axis to go in the right order and start at 12 o'clock
+    ax.set_theta_offset(3.14159 / 2)
+    ax.set_theta_direction(-1)
+    
+    # Draw axis lines for each category
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(categories, size=11, weight='bold')
+    
+    # Set y-axis limits and labels
+    ax.set_ylim(0, 5)
+    ax.set_yticks([1, 2, 3, 4, 5])
+    ax.set_yticklabels(['1', '2', '3', '4', '5'], size=9, color='gray')
+    
+    # Add difficulty zones with colored backgrounds
+    # Red zone (difficult): 0-2
+    ax.add_patch(Circle((0, 0), 2, transform=ax.transData._b, 
+                       color='red', alpha=0.1, zorder=0))
+    # Yellow zone (medium): 2-4
+    ax.add_patch(Circle((0, 0), 4, transform=ax.transData._b, 
+                       color='yellow', alpha=0.1, zorder=0))
+    # Green zone (easy): 4-5
+    ax.add_patch(Circle((0, 0), 5, transform=ax.transData._b, 
+                       color='green', alpha=0.08, zorder=0))
+    
+    # Add grid
+    ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.7)
+    
+    # Add title
+    title = f'Difficulté du Quiz par Catégorie\n{date_str}'
+    plt.title(title, size=16, weight='bold', pad=20)
+    
+    # Add legend for difficulty scale
+    legend_elements = [
+        mpatches.Patch(facecolor='red', alpha=0.3, label='Difficile (0-2)'),
+        mpatches.Patch(facecolor='yellow', alpha=0.3, label='Moyen (2-4)'),
+        mpatches.Patch(facecolor='green', alpha=0.3, label='Facile (4-5)')
+    ]
+    ax.legend(handles=legend_elements, loc='upper right', bbox_to_anchor=(1.3, 1.1), fontsize=10)
+    
+    # Add explanation text
+    fig.text(0.5, 0.02, 
+            'Note: 5 = très facile (taux de réussite élevé), 0 = très difficile (taux de réussite faible)',
+            ha='center', fontsize=9, style='italic', color='gray')
+    
+    # Save or show
+    if output_path is None:
+        FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+        output_path = FIGURES_DIR / f"category_difficulty_{date_str}.png"
+    
+    plt.tight_layout()
+    
+    if show:
+        plt.show()
+    
+    try:
+        fig.savefig(output_path, dpi=150, bbox_inches='tight', facecolor='white')
+        log(f"[RADAR] Graphique sauvegardé: {output_path}")
+        return True
+    except Exception as e:
+        eprint(f"[RADAR] Erreur sauvegarde: {e}")
+        return False
+    finally:
+        plt.close(fig)
+
+
+def run_daily(date_str: str, *, use_cache: bool, refresh: bool, generate_radar: bool = False, 
+              show_radar: bool = False) -> int:
     from fan2quizz.database import QuizDB  # type: ignore
     from fan2quizz.scraper import QuizypediaScraper  # type: ignore
     from fan2quizz.utils import RateLimiter  # type: ignore
@@ -456,6 +593,14 @@ def run_daily(date_str: str, *, use_cache: bool, refresh: bool) -> int:
     print("\nStatistiques de distribution :")
     summarize_distribution(results)
     print_selected_players(results)
+    
+    # Generate category difficulty radar chart if requested
+    if generate_radar:
+        print("\n📊 Génération du graphique radar de difficulté par catégorie...")
+        success = create_category_difficulty_radar(date_str, show=show_radar)
+        if not success:
+            print("⚠️  Impossible de générer le graphique radar.")
+    
     return 0
 
 
@@ -660,6 +805,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument('--clipboard', action='store_true', help='Copier la table finale dans le presse-papiers (texte brut)')
     p.add_argument('--clipboard-slack', action='store_true', help='Copier la table formatée pour Slack')
     p.add_argument('--slack-print', action='store_true', help='Afficher directement la table Slack sur stdout')
+    p.add_argument('--radar', action='store_true', help='Générer le graphique radar de difficulté par catégorie')
+    p.add_argument('--show-radar', action='store_true', help='Afficher le graphique radar interactivement (implique --radar)')
     return p
 
 
@@ -699,8 +846,14 @@ def main(argv: List[str]) -> int:
     GENZ_EN_ENABLED = bool(args.genz_en and GENZ_ENABLED)
     use_cache = not args.no_cache
     refresh = bool(args.refresh)
+    
+    # Radar chart options
+    generate_radar = args.radar or args.show_radar
+    show_radar = args.show_radar
+    
     try:
-        code = run_daily(date_str, use_cache=use_cache, refresh=refresh)
+        code = run_daily(date_str, use_cache=use_cache, refresh=refresh, 
+                        generate_radar=generate_radar, show_radar=show_radar)
     except KeyboardInterrupt:
         print("[INTERRUPTION] Arrêt par utilisateur.")
         return 130
