@@ -35,6 +35,56 @@ MISTAKES_FILE = ROOT / "data" / "results" / "mistakes_history.json"
 OUTPUT_DIR = ROOT / "output" / "reports"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+# Canonical mapping for category IDs → French category names
+CAT_ID_NAME = {
+    1: "Culture classique",
+    2: "Culture moderne",
+    3: "Culture générale",
+    4: "Géographie",
+    5: "Histoire",
+    6: "Animaux et plantes",
+    7: "Sciences et techniques",
+    8: "Sport",
+}
+
+def resolve_category_name(value) -> str:
+    """Return display category name from a raw value.
+
+    Accepts integer IDs, numeric strings, or already formatted names.
+    Falls back to 'Unknown Category'.
+    """
+    if value is None:
+        return "Unknown Category"
+    # If it's already a string that might be numeric
+    if isinstance(value, str):
+        v = value.strip()
+        if v.isdigit():
+            try:
+                return CAT_ID_NAME.get(int(v), f"Catégorie {v}")
+            except Exception:
+                return f"Catégorie {v}"
+        # If it matches one of our known labels exactly, keep it; else just return original.
+        if any(v == vv for vv in CAT_ID_NAME.values()):
+            return v
+        return v
+    # If it's numeric
+    if isinstance(value, (int, float)):
+        try:
+            return CAT_ID_NAME.get(int(value), f"Catégorie {int(value)}")
+        except Exception:
+            return f"Catégorie {value}"
+    return str(value)
+
+def extract_category(mistake: Dict[str, Any]) -> str:
+    """Extract standardized category from a mistake record.
+
+    Tries common keys: 'category', 'category_id', 'main_category_id'.
+    """
+    for key in ("category", "category_id", "main_category_id"):
+        if key in mistake and mistake[key] not in (None, ""):
+            return resolve_category_name(mistake[key])
+    return "Unknown Category"
+
 
 # --- Wikipedia Helper Class ---
 class WikiHelper:
@@ -126,7 +176,7 @@ class WikiHelper:
     def fetch_wikipedia_summary(self, topic: str, sentences: int = 2) -> str:
         """Fetch Wikipedia summary with better error handling."""
         try:
-            import wikipedia  # optional dep
+            import wikipedia  # optional dep  # type: ignore
             wikipedia.set_lang(self.lang)
             try:
                 return wikipedia.summary(topic, sentences=sentences)
@@ -250,14 +300,15 @@ def group_mistakes_by_category(mistakes: List[Dict]) -> Dict[str, List[Dict]]:
     """Group mistakes by category."""
     grouped = defaultdict(list)
     for mistake in mistakes:
-        category = mistake.get('category', 'Unknown Category')
+        category = extract_category(mistake)
         grouped[category].append(mistake)
     return dict(grouped)
 
 
 def generate_markdown_report(mistakes: List[Dict], output_file: Path, 
                             include_wikipedia: bool = True,
-                            group_by_category: bool = False) -> bool:
+                            group_by_category: bool = False,
+                            include_details: bool = False) -> bool:
     """
     Generate a Markdown report of mistakes with Wikipedia links.
     
@@ -295,13 +346,13 @@ def generate_markdown_report(mistakes: List[Dict], output_file: Path,
             lines.append(f"\n## 📂 {category}\n")
             lines.append(f"**{len(cat_mistakes)} mistake(s)**\n")
             for mistake in cat_mistakes:
-                lines.extend(_format_mistake(mistake, wiki, include_wikipedia))
+                lines.extend(_format_mistake(mistake, wiki, include_wikipedia, include_details))
     else:
         # Chronological order
         lines.append("\n## 📅 Mistakes by Date\n")
         
         for mistake in mistakes:
-            lines.extend(_format_mistake(mistake, wiki, include_wikipedia))
+            lines.extend(_format_mistake(mistake, wiki, include_wikipedia, include_details))
     
     # Write to file
     try:
@@ -314,15 +365,15 @@ def generate_markdown_report(mistakes: List[Dict], output_file: Path,
         return False
 
 
-def _format_mistake(mistake: Dict, wiki_cache: Dict, include_wikipedia: bool) -> List[str]:
-    """
-    Format a single mistake as Markdown lines.
-    
+def _format_mistake(mistake: Dict, wiki_cache: Dict, include_wikipedia: bool, include_details: bool) -> List[str]:
+    """Format a single mistake as Markdown lines.
+
     Args:
         mistake: Mistake dictionary
         wiki_cache: Cache for Wikipedia links
         include_wikipedia: Whether to include Wikipedia links
-    
+        include_details: Whether to show answers and choices
+
     Returns:
         List of formatted lines
     """
@@ -334,13 +385,25 @@ def _format_mistake(mistake: Dict, wiki_cache: Dict, include_wikipedia: bool) ->
     lines.append(f"\n### ❌ Question {question_num} — {date}\n")
     
     # Category
-    category = mistake.get('category', 'Unknown Category')
+    category = extract_category(mistake)
     lines.append(f"**Category:** {category}\n")
     
     # Question
     question = mistake.get('question', '').strip()
     if question:
         lines.append(f"\n**Question:** {question}\n")
+    
+    # Always show correct answer
+    correct_answer = mistake.get('correct_answer', 'Unknown')
+    lines.append(f"\n- ✅ **Correct Answer:** {correct_answer}\n")
+
+    # Optional: user's answer and choices
+    if include_details:
+        your_answer = mistake.get('your_answer', 'Unknown')
+        lines.append(f"- ❌ **Your Answer:** {your_answer}\n")
+        all_choices = mistake.get('all_choices', [])
+        if all_choices:
+            lines.append(f"\n**All Choices:** {', '.join(all_choices)}\n")
     
     # Hints
     hints = mistake.get('hints', [])
@@ -349,17 +412,7 @@ def _format_mistake(mistake: Dict, wiki_cache: Dict, include_wikipedia: bool) ->
         for hint in hints:
             lines.append(f"- {hint}\n")
     
-    # Answers
-    your_answer = mistake.get('your_answer', 'Unknown')
-    correct_answer = mistake.get('correct_answer', 'Unknown')
-    
-    lines.append(f"\n- ❌ **Your Answer:** {your_answer}\n")
-    lines.append(f"- ✅ **Correct Answer:** {correct_answer}\n")
-    
-    # All choices (if available)
-    all_choices = mistake.get('all_choices', [])
-    if all_choices:
-        lines.append(f"\n**All Choices:** {', '.join(all_choices)}\n")
+    # correct_answer already defined above for summary/link
     
     # Wikipedia summary and link
     if include_wikipedia:
@@ -394,7 +447,7 @@ def generate_summary_stats(mistakes: List[Dict]) -> Dict[str, Any]:
     # Count by category
     by_category = defaultdict(int)
     for mistake in mistakes:
-        category = mistake.get('category', 'Unknown')
+        category = extract_category(mistake)
         by_category[category] += 1
     
     # Sort by frequency
@@ -469,10 +522,13 @@ Examples:
                        help='Output file path (default: mistakes_with_wikipedia.md)')
     parser.add_argument('--no-wikipedia', action='store_true',
                        help='Skip Wikipedia link generation (faster)')
-    parser.add_argument('--group-by-category', action='store_true',
-                       help='Group mistakes by category instead of chronological order')
+    # Default is now grouping by category. Provide a flag to switch back to chronological.
+    parser.add_argument('--chronological', action='store_true',
+                       help='List mistakes chronologically instead of grouping by category')
     parser.add_argument('--summary-only', action='store_true',
                        help='Only show summary statistics, do not generate report')
+    parser.add_argument('--show-details', action='store_true',
+                       help='Include your wrong answer, the correct answer, and all choices (omitted by default)')
     
     args = parser.parse_args()
     
@@ -514,7 +570,8 @@ Examples:
         mistakes,
         output_file,
         include_wikipedia=not args.no_wikipedia,
-        group_by_category=args.group_by_category
+        group_by_category=not args.chronological,  # default True unless chronological requested
+        include_details=args.show_details,
     )
     
     if success:
@@ -524,9 +581,9 @@ Examples:
             print("💡 Tip: Use --no-wikipedia for faster generation without links")
         print("💡 Tip: Use --days 7 to see only recent mistakes")
         print("💡 Tip: Use --group-by-category for topic-based organization")
+        print("💡 Tip: Use --show-details to include answers and choices")
         return 0
-    else:
-        return 1
+    return 1
 
 
 if __name__ == '__main__':
