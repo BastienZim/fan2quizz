@@ -42,7 +42,14 @@ CACHE_DIR = ROOT / "data" / "cache" / "archive"
 FIGURES_DIR = ROOT / "data" / "figures"
 RATE_LIMIT_SECONDS = 0.2
 QUIZ_TOTAL_FALLBACK = 20
-SELECTED_PLAYERS = ["jutabouret", "louish", "KylianMbappe", "BastienZim", "kamaiel", "phllbrn", "DestroyOps","pascal-condamine", "ColonelProut","fpCraft"]
+
+# Selected players to track in the daily report
+# NOTE: Pseudos can have any case in SELECTED_PLAYERS list, but they will be matched case-insensitively
+SELECTED_PLAYERS = ["jutabouret", "LouisH", "KylianMbappe", "BastienZim", "kamaiel", "phllbrn", "DestroyOps","pascal-condamine", "ColonelProut","fpCraft", "manager_b"]
+
+# Real name mapping for selected players
+# IMPORTANT: Keys MUST be lowercase (the lookup converts usernames to lowercase)
+# Format: "lowercase_pseudo": "Real Name"
 REAL_NAME_MAP = {
     "jutabouret": "Julien",
     "louish": "Louis",
@@ -54,6 +61,7 @@ REAL_NAME_MAP = {
     "pascal-condamine": "Pascal",
     "colonelprout": "Lucas",
     "fpcraft": "François",
+    "manager_b": "Matthieu",
 }
 
 # Quiz categories for radar chart
@@ -72,6 +80,7 @@ EMOJIS_ENABLED = False
 GENZ_ENABLED = False
 GENZ_EN_ENABLED = False  # English Gen-Z disabled by default
 LANG = 'fr'  # kept for backwards compatibility but no toggle now
+KIND_ENABLED = False  # Option to show only kind comments in genz_fr
 
 
 def eprint(*a, **k):
@@ -142,29 +151,60 @@ def generate_genz_daily(pct: Optional[float], rank_val: Optional[int], et_val: O
         'low_rank': ['NPC ENERGY 💤','BACKGROUND NPC 💤','LOWKEY AF 💤','WHERE U AT? 👀'],
     }
     pools_fr = {
-        'perfect_speed': ['PERF ÉCLAIR ⚡','PARFAIT SPEED ⚡','IMBATTABLE ⚡','ULTRA RAPIDE ⚡','SONIC VIBE ⚡','TURBO MODE ⚡','FLASH MCQUEEN ⚡','VITESSE LUMIÈRE ⚡'],
-        'perfect': ['SANS FAUTE 🌟','PARFAIT 🌟','FULL LOCK 🔐','CLUTCH 🌟','20/20 🌟','IMPECCABLE 🌟','MASTERCLASS 🌟','LÉGENDE 🌟','100% VALIDÉ ✅'],
-        't95': ['EN FEU 🔥','TROP FORT 🔥','ÇA CHAUFFE 🔥','GOAT 🔥','MEGA CHAUD 🔥','ÉNORME 🔥','MONSTRUEUX 💪','GÉANT 🔥','T\'ES CHAUD 🔥'],
-        't80': ['SOLIDE 😎','VALIDÉ 😎','ÇA CUIT 👨‍🍳','ON CUISINE 🍳','BG 😎','STYLÉ 😎','TRANQUILLE 😎','BIEN JOUÉ 👍','PROPRE 😎','ÇA PASSE 👌'],
-        't60': ['MOYEN 😬','EN PROGRESSION 🤏','CONTINUE 🛠️','NE LÂCHE RIEN 💪','PEUT MIEUX FAIRE 📈','BIENTÔT LÀ 🤏','ON Y CROIT 🙏','PRESQUE 🤷','ALLEZ 💪','REVIENS PLUS FORT 💯'],
-        'low': ['RIP 💀','AÏE 💀','DOWN BAD 💀','FLOP 💀','RATÉ 💀','GAME OVER 💀','OUPS 💀','PAS OUF 💀','AÏEAÏEAÏE 😬','YIKES 😬'],
-        'low_rank': ['PNJ 💤','FIGURANT 💤','ON TE VOIT PAS 👀','BACKGROUND 💤','FANTÔME 👻','INVISIBLE 👻','T\'ES OÙ? 👀','ABSENT 💤','EN ROUE LIBRE 🛞','PERDU 🗺️'],
+        'perfect_speed': [
+            'PERF ÉCLAIR ⚡','PARFAIT SPEED ⚡','IMBATTABLE ⚡','ULTRA RAPIDE ⚡','SONIC VIBE ⚡','TURBO MODE ⚡','FLASH MCQUEEN ⚡','VITESSE LUMIÈRE ⚡',
+            'HYPERDRIVE ⚡','MODE FUSÉE 🚀','FULL SPEED 🚀','WARP DRIVE ⚡','INSTANTANÉ ⚡','ZERO LATENCE ⚡','PIXEL PERFECT ⚡','SPAM CLICK ⚡',
+            'SPEEDRUNNER 🏃‍♂️','SPLIT PARFAIT 🧭','RÉFLEXES OP 🧠','MÉTÉORE ⚡','TRACE DE LUMIÈRE ✨','TEMPS CRAQUÉ 🕒'
+        ],
+        'perfect': [
+            'SANS FAUTE 🌟','PARFAIT 🌟','FULL LOCK 🔐','CLUTCH 🌟','20/20 🌟','IMPECCABLE 🌟','MASTERCLASS 🌟','LÉGENDE 🌟','100% VALIDÉ ✅',
+            'BROKEN 💥','TIER S+ 💥','CHEAT CODE 💻','NO MISS 🎯','ULTIME 🌟','FLAWLESS RUN 🧊','ABSOLU 🌟','GOD MODE 👑','TROP PROPRE 🧼',
+            'SCRIPTÉ 🤖','FRAME CLEAN 🪞','AUCUNE ERREUR ❌','TRANQUILLE IMPERIAL 👑','AU-DESSUS DU LOT ⛰️'
+        ],
+        't95': [
+            'EN FEU 🔥','TROP FORT 🔥','ÇA CHAUFFE 🔥','GOAT 🔥','MEGA CHAUD 🔥','ÉNORME 🔥','MONSTRUEUX 💪','GÉANT 🔥','T\'ES CHAUD 🔥',
+            'LAVE ACTIVE 🌋','PAS LOIN DU PARFAIT 🎯','SURDUIT 🔥','TU PILES 🚀','MÉCHANT NIVEAU 😈','SURVOLTÉ ⚡','BANGER 🔥','TROP SOLIDE 🧱',
+            'LIMIT BREAK 💥','PRÈS DU PALAIS 👑','TU RÈGLES ÇA 🔧','ULTRA CLEAN 🧊'
+        ],
+        't80': [
+            'SOLIDE 😎','VALIDÉ 😎','ÇA CUIT 👨‍🍳','ON CUISINE 🍳','BG 😎','STYLÉ 😎','TRANQUILLE 😎','BIEN JOUÉ 👍','PROPRE 😎','ÇA PASSE 👌',
+            'TU PROGRESSES 📈','BON GRIND 🛠️','STABLE 🧱','RAS 👍','CARRÉ 🟥','FAIT LE JOB 🧾','OPTIMISÉ ⚙️','TU GARDES LE RYTHME 🥁','PAS MAL 😏',
+            'TU TIENS LA ROUTE 🚗','ÇA TOURNE 🔁','LA FORME ✅','C’EST CLEAN 🧼'
+        ],
+        't60': [
+            'MOYEN 😬','EN PROGRESSION 🤏','CONTINUE 🛠️','NE LÂCHE RIEN 💪','PEUT MIEUX FAIRE 📈','BIENTÔT LÀ 🤏','ON Y CROIT 🙏','PRESQUE 🤷','ALLEZ 💪','REVIENS PLUS FORT 💯',
+            'TU GRIND 🪓','PAS FINI 🔄','EN CONSTRUCTION 🏗️','ROUTE LONGUE 🛣️','CHAUFFE MOTEUR 🚗','BUILD EN COURS 🧱','EN RÉGLAGE 🔧','APPROCHE 🛰️','EN CHANTIER 🚧',
+            'PAS FOU MAIS ÇA VIENT 🤞','EN CHARGE 🔋','MODE TRAINING 🏋️'
+        ],
+        'low': [
+            'RIP 💀','AÏE 💀','DOWN BAD 💀','FLOP 💀','RATÉ 💀','GAME OVER 💀','OUPS 💀','PAS OUF 💀','AÏEAÏEAÏE 😬','YIKES 😬',
+            'RECALÉ ❌','COFFRE VIDE 📦','SANS DÉGÂTS 🩹','GLISSADE 🛷','TU TOMBES 🕳️','FLOP SECO 💀','MAL CHAUD 🌧️','TOUT SEC 🏜️','FREEZE 🧊',
+            'SOUS-EAU 🌊','ÇA RAM 🔄','MAL ALIGNÉ 📐','FRAPPE FANTÔME 👻'
+        ],
+        'low_rank': [
+            'PNJ 💤','FIGURANT 💤','ON TE VOIT PAS 👀','BACKGROUND 💤','FANTÔME 👻','INVISIBLE 👻','T\'ES OÙ? 👀','ABSENT 💤','EN ROUE LIBRE 🛞','PERDU 🗺️',
+            'MODE OBSERVER 👀','SPECTATE ONLY 🎥','AFK 💤','ALT+TAB 🖥️','SHADOW MODE 🌑','SILENCIEUX 🤫','LATENT 🕰️','HORS CHAMP 🎬',
+            'COUCHE BETA 🧪','CAMOUFLÉ 🥷','EN PAUSE ⏸️'
+        ],
     }
     en = fr = ''
     if isinstance(pct, (int, float)):
+        # Adjusted thresholds (-15 percentage points) to make higher tier messages easier to obtain.
+        # Original: perfect_speed (100 + fast), perfect (100), t95, t80, t60, else low
+        # New cutoffs: t95 -> >=80, t80 -> >=65, t60 -> >=45
         if pct == 100 and et_val is not None and et_val <= 30:
             en = random.choice(pools_en['perfect_speed'])
             fr = random.choice(pools_fr['perfect_speed'])
         elif pct == 100:
             en = random.choice(pools_en['perfect'])
             fr = random.choice(pools_fr['perfect'])
-        elif pct >= 95:
+        elif pct >= 80:  # was 95
             en = random.choice(pools_en['t95'])
             fr = random.choice(pools_fr['t95'])
-        elif pct >= 80:
+        elif pct >= 65:  # was 80
             en = random.choice(pools_en['t80'])
             fr = random.choice(pools_fr['t80'])
-        elif pct >= 60:
+        elif pct >= 45:  # was 60
             en = random.choice(pools_en['t60'])
             fr = random.choice(pools_fr['t60'])
         else:
@@ -258,6 +298,17 @@ def print_selected_players(results: List[Dict[str, Any]]):
             r['badges'] = (perf + speed) if EMOJIS_ENABLED else ''
         if GENZ_ENABLED:
             fr_phrase, en_phrase = generate_genz_daily(r.get('pct'), r.get('rank'), r.get('elapsed_time'))
+            if KIND_ENABLED:
+                # Replace genz_fr with only kind comments
+                kind_comments = [
+                    "Bravo ! 🌟", "Super effort ! 💪", "Bien joué ! 👏", "Tu progresses ! 📈", "Continue comme ça ! ✨",
+                    "Excellente participation ! 🎯", "Tu t'améliores ! 🚀", "Félicitations ! 🎉", "Belle performance ! 💎",
+                    "Courage ! 💙", "On croit en toi ! 🌈", "Tu assures ! 🔥", "Top ! ⭐", "Respect ! 🙌", "Chapeau ! 🎩",
+                    "C'est vraiment bien ! 😊", "Tu donnes le meilleur ! 💯", "Magnifique ! ✨", "Incroyable effort ! 🌠",
+                    "Tu es sur la bonne voie ! 🛤️", "Fantastique ! 🎊", "Impressionnant ! 💫", "Tu te surpasses ! 🏆",
+                    "Quelle détermination ! 💪", "Tu es un champion ! 🥇", "Merveilleux ! 🌺", "Superbe travail ! 🎨"
+                ]
+                fr_phrase = random.choice(kind_comments)
             r['genz_fr'] = fr_phrase
             r['genz_en'] = en_phrase
         else:
@@ -275,7 +326,8 @@ def print_selected_players(results: List[Dict[str, Any]]):
         table=Table(title=title, box=box.MINIMAL_DOUBLE_HEAD, header_style='bold cyan')
         base=[["rang","bold yellow","right"],["joueur","white","left"],["nom","cyan","left"],["score","green","right"],["total","green","right"],["pct%","magenta","right"],["temps","blue","right"],["badges","bold","left"]]
         if GENZ_ENABLED:
-            base.append(('gen-z fr','italic magenta','left'))
+            kind_title = 'encouragements' if KIND_ENABLED else 'gen-z fr'
+            base.append((kind_title,'italic magenta','left'))
             if GENZ_EN_ENABLED:
                 base.append(('gen-z en','italic magenta','left'))
         for c, s, j in base:
@@ -292,7 +344,8 @@ def print_selected_players(results: List[Dict[str, Any]]):
         print("\nJoueurs sélectionnés:")
         header=f"{'RANG':>4} {'JOUEUR':<15} {'NOM':<12} {'SCORE':>7} {'%':>6} {'TEMPS':>6} {'BADGES':<8}"
         if GENZ_ENABLED:
-            header += " GENZ_FR"
+            kind_header = " ENCOURAGEMENTS" if KIND_ENABLED else " GENZ_FR"
+            header += kind_header
             if GENZ_EN_ENABLED:
                 header += " GENZ_EN"
         print(header)
@@ -852,6 +905,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument('--genz',action='store_true',help='Enable Gen-Z banter')
     p.add_argument('--genz-en',action='store_true',help='Enable English Gen-Z column (requires --genz or --fun)')
     p.add_argument('--fun',action='store_true',help='Shortcut: enable both emojis + genz')
+    p.add_argument('--kind', action='store_true', help='Replace genz_fr with only kind comments')
     p.add_argument('--save-table', help='Chemin fichier pour sauvegarder la table (auto format by extension)')
     p.add_argument('--clipboard', action='store_true', help='Copier la table finale dans le presse-papiers (texte brut)')
     p.add_argument('--clipboard-slack', action='store_true', help='Copier la table formatée pour Slack')
@@ -884,7 +938,7 @@ def main(argv: List[str]) -> int:
         date_str=(_date.today()-timedelta(days=1)).strftime('%Y-%m-%d')
     else:
         date_str=validate_date(args.date)
-    global CACHE_DIR,EMOJIS_ENABLED,GENZ_ENABLED,GENZ_EN_ENABLED
+    global CACHE_DIR,EMOJIS_ENABLED,GENZ_ENABLED,GENZ_EN_ENABLED,KIND_ENABLED
     if args.cache_dir:
         CACHE_DIR = Path(args.cache_dir)
     if not (args.emojis or args.genz or args.fun):
@@ -895,6 +949,7 @@ def main(argv: List[str]) -> int:
         GENZ_ENABLED = bool(args.genz or args.fun)
     # English Gen-Z only enabled if explicitly requested
     GENZ_EN_ENABLED = bool(args.genz_en and GENZ_ENABLED)
+    KIND_ENABLED = bool(args.kind)
     use_cache = not args.no_cache
     refresh = bool(args.refresh)
     
