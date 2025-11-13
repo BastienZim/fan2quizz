@@ -1,0 +1,32 @@
+{
+  "comment": "Player tracking configuration for daily quiz reports",
+  "note": "Pseudos in 'selected' can have any case, but 'real_names' keys MUST be lowercase",
+  "selected": [
+    "jutabouret",
+    "LouisH",
+    "KylianMbappe",
+    "BastienZim",
+    "kamaiel",
+    "phllbrn",
+    "DestroyOps",
+    "pascal-condamine",
+    "ColonelProut",
+    "fpCraft",
+    "manager_b",
+    "happyhill"
+  ],
+  "real_names": {
+    "jutabouret": "Julien",
+    "louish": "Louis",
+    "kylianmbappe": "Clement",
+    "bastienzim": "Bastien",
+    "kamaiel": "Raphael",
+    "phllbrn": "Ophélie",
+    "destroyops": "Alexis",
+    "pascal-condamine": "Pascal",
+    "colonelprout": "Lucas",
+    "fpcraft": "François",
+    "manager_b": "Matthieu",
+    "happyhill":"Jaime"
+  }
+}

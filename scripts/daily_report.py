@@ -40,29 +40,33 @@ if str(ROOT) not in sys.path:
 DB_PATH = ROOT / "data" / "db" / "quizypedia.db"
 CACHE_DIR = ROOT / "data" / "cache" / "archive"
 FIGURES_DIR = ROOT / "data" / "figures"
+PLAYERS_CONFIG_PATH = ROOT / "data" / "players.json"
 RATE_LIMIT_SECONDS = 0.2
 QUIZ_TOTAL_FALLBACK = 20
 
-# Selected players to track in the daily report
-# NOTE: Pseudos can have any case in SELECTED_PLAYERS list, but they will be matched case-insensitively
-SELECTED_PLAYERS = ["jutabouret", "LouisH", "KylianMbappe", "BastienZim", "kamaiel", "phllbrn", "DestroyOps","pascal-condamine", "ColonelProut","fpCraft", "manager_b"]
+# Load player configuration from JSON file
+def load_players_config() -> Tuple[List[str], Dict[str, str]]:
+    """Load selected players and real name mapping from players.json.
+    
+    Returns:
+        Tuple of (selected_players_list, real_name_map_dict)
+    """
+    try:
+        with open(PLAYERS_CONFIG_PATH, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+        selected = config.get('selected', [])
+        real_names = config.get('real_names', {})
+        return selected, real_names
+    except FileNotFoundError:
+        eprint(f"[WARNING] Players config file not found: {PLAYERS_CONFIG_PATH}")
+        eprint("[WARNING] Using empty player lists")
+        return [], {}
+    except json.JSONDecodeError as e:
+        eprint(f"[WARNING] Invalid JSON in players config: {e}")
+        eprint("[WARNING] Using empty player lists")
+        return [], {}
 
-# Real name mapping for selected players
-# IMPORTANT: Keys MUST be lowercase (the lookup converts usernames to lowercase)
-# Format: "lowercase_pseudo": "Real Name"
-REAL_NAME_MAP = {
-    "jutabouret": "Julien",
-    "louish": "Louis",
-    "kylianmbappe": "Clement",
-    "bastienzim": "Bastien",
-    "kamaiel": "Raphael",
-    "phllbrn": "Ophélie",
-    "destroyops": "Alexis",
-    "pascal-condamine": "Pascal",
-    "colonelprout": "Lucas",
-    "fpcraft": "François",
-    "manager_b": "Matthieu",
-}
+SELECTED_PLAYERS, REAL_NAME_MAP = load_players_config()
 
 # Quiz categories for radar chart
 QUIZ_CATEGORIES = [
